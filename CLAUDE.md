@@ -1,6 +1,7 @@
 # PoPo애견미용실 웹사이트 — Claude Code 작업 지침
 
-이 저장소는 **PoPo애견미용실(포포)** 공식 홈페이지다. 원래 Manus로 생성한 코드이며, 현재 Manus 배포 주소는 https://popopet-2kcmt2vm.manus.space/ 이다.
+이 저장소는 **PoPo애견미용실(포포)** 공식 홈페이지다. 원래 Manus로 생성한 코드이며, 2026-10-17부터 Manus 배포는 쓰지 않는다.
+배포: GitHub 저장소 https://github.com/s73827-bit/popo_petsalon 의 `main` 브랜치에 push하면 GitHub Actions(`.github/workflows/deploy.yml`)가 빌드해 GitHub Pages(https://s73827-bit.github.io/popo_petsalon/)에 올린다.
 2026-10-17 실제 매장이 오픈했다. 사이트는 "오픈 준비 중" 상태로 만들어져 있어 실제 영업 정보로 전환하는 것이 1순위 과제다.
 
 ## 1. 사실 정보는 한 곳에서만 가져온다
@@ -9,7 +10,7 @@
 - 가격, 후기, 비포/애프터 사진, 자격증, 경력 숫자를 **지어내지 않는다.**
 
 ## 2. 코드 환경 (2026-10-17 확인)
-- 프레임워크/빌드: **프레임워크 없음. 정적 HTML + 바닐라 JS(ES 모듈) + Vite 7** (`vite.config.js`에서 `index.html`, `admin.html` 두 개를 멀티 페이지로 빌드). SPA 아님 — 공개 페이지의 모든 콘텐츠·메타가 `index.html` 정적 마크업에 들어 있다.
+- 프레임워크/빌드: **프레임워크 없음. 정적 HTML + 바닐라 JS(ES 모듈) + Vite 7** (`vite.config.js`는 `index.html`만 빌드한다. `admin.html`은 Manus 의존이라 빌드에서 뺐다. 빌드 시 `base`는 `/popo_petsalon/` — GitHub Pages 하위 경로용, 자체 도메인 연결 시 `/`로 변경). SPA 아님 — 공개 페이지의 모든 콘텐츠·메타가 `index.html` 정적 마크업에 들어 있다.
 - 페이지 구조: 공개 페이지 전체가 `index.html` 한 파일(섹션 `<section id=…>` 15개). 인터랙션은 `src/main.js`(모바일 메뉴, FAQ 아코디언, 모의 예약 폼, localStorage 후기). 관리자 화면은 `admin.html` + `src/admin.js`.
 - 스타일: **순수 CSS 한 파일** `src/style.css` (`:root` CSS 변수 사용, Tailwind 없음). 단, `index.html` 인라인 SVG 로고에 `#26352C` 등 색상이 하드코딩돼 있음.
 - 서버/API 유무: `server/`(Express + MySQL + Stripe + Manus OAuth/스토리지)와 `scripts/check-api.mjs`가 **있지만 미사용 상태**. `package.json`에 express 등 의존성이 없고, 공개 페이지(`src/main.js`)는 API를 호출하지 않으며, Dockerfile은 `vite preview`로 정적 결과물만 서빙한다. → 서버 코드는 손대지 않는다(정리 여부는 사용자에게 확인).

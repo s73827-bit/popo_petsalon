@@ -29,7 +29,7 @@
 | 인스타그램 | https://www.instagram.com/popo_grooming |
 | 네이버 플레이스 | TODO (공유 버튼의 naver.me 짧은 링크) |
 | 네이버 예약 | TODO (사용 여부 미확인) |
-| 웹사이트(현재) | https://popopet-2kcmt2vm.manus.space/ |
+| 웹사이트(현재) | https://s73827-bit.github.io/popo_petsalon/ (GitHub Pages, 2026-10-17부터. Manus 배포는 사용 중단) |
 | 자체 도메인 | TODO |
 
 ## 진행 중 이벤트
