@@ -1144,58 +1144,9 @@ h1, h2, h3, h4 {
   margin: 0 auto 20px;
 }
 
-.placeholder-spec-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  color: var(--color-sage);
-  font-weight: 600;
+.review-link-row {
+  text-align: center;
 }
-
-.review-categories-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 28px;
-}
-
-.review-cat-chip {
-  background-color: #FFFFFF;
-  border: 1px solid var(--color-border);
-  padding: 8px 18px;
-  border-radius: var(--radius-full);
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--color-olive-deep);
-}
-
-.review-builder-card { max-width: 920px; margin: 0 auto; display: grid; gap: 18px; }
-.review-form-panel, .review-list-panel { background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 28px; box-shadow: var(--shadow-card); }
-.review-form-heading, .review-list-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
-.review-form-heading h3, .review-list-heading h3 { margin: 5px 0 0; font-size: 1.18rem; }
-.review-storage-note, .review-count { color: var(--color-sage); font-size: .78rem; font-weight: 700; white-space: nowrap; }
-.review-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.review-field { display: flex; flex-direction: column; gap: 7px; }
-.review-field label { color: var(--color-olive-deep); font-size: .82rem; font-weight: 700; }
-.review-field input, .review-field select, .review-field textarea { width: 100%; padding: 12px 13px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: #FFFEFB; color: var(--color-olive-deep); font: inherit; }
-.review-field textarea { resize: vertical; min-height: 112px; }
-.review-field input:focus, .review-field select:focus, .review-field textarea:focus { outline: 2px solid rgba(216, 138, 99, .28); border-color: var(--color-apricot); }
-.review-field-full { grid-column: 1 / -1; }
-.review-form-actions { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 18px; color: var(--color-olive-light); font-size: .78rem; }
-.review-form-actions .btn { flex: 0 0 auto; }
-.review-list-heading { margin-bottom: 14px; align-items: center; }
-.review-list { display: grid; gap: 12px; }
-.review-empty { margin: 0; padding: 22px; border: 1px dashed var(--color-border); border-radius: var(--radius-md); color: var(--color-olive-light); text-align: center; font-size: .9rem; }
-.review-card { padding: 16px 18px; border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); background: #FFFEFB; }
-.review-card-top { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
-.review-card-author { color: var(--color-olive-deep); font-weight: 700; }
-.review-card-date { color: var(--color-olive-light); font-size: .76rem; }
-.review-card-rating { color: var(--color-apricot); letter-spacing: .08em; font-size: .92rem; margin-bottom: 7px; }
-.review-card-text { margin: 0; color: var(--color-olive-deep); line-height: 1.65; white-space: pre-wrap; word-break: break-word; }
-@media (max-width: 650px) { .review-form-panel, .review-list-panel { padding: 22px 18px; } .review-form-grid { grid-template-columns: 1fr; } .review-field-full { grid-column: auto; } .review-form-actions { align-items: stretch; flex-direction: column; } .review-form-actions .btn { width: 100%; } .review-form-heading { flex-direction: column; gap: 8px; } }
 
 /* ========================================================
    9. POPO CARE RECORD
@@ -1211,13 +1162,6 @@ h1, h2, h3, h4 {
     grid-template-columns: 0.9fr 1.1fr;
     align-items: center;
   }
-}
-
-.record-notice {
-  font-size: 0.85rem;
-  color: #7A867E;
-  margin-top: 16px;
-  line-height: 1.5;
 }
 
 .record-spec-sheet {
@@ -1316,26 +1260,6 @@ h1, h2, h3, h4 {
   margin: 0 auto;
   box-shadow: var(--shadow-card);
   text-align: center;
-}
-
-.price-badge-notice {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #FAF4EB;
-  border: 1px solid var(--color-border);
-  padding: 10px 22px;
-  border-radius: var(--radius-full);
-  color: var(--color-olive-deep);
-  font-size: 1.05rem;
-  margin-bottom: 20px;
-}
-
-.badge-status-dot {
-  width: 10px;
-  height: 10px;
-  background-color: var(--color-apricot);
-  border-radius: 50%;
 }
 
 .price-status-text {
@@ -1701,37 +1625,6 @@ h1, h2, h3, h4 {
     flex-wrap: wrap;
     justify-content: center;
   }
-}
-
-.form-feedback {
-  margin-top: 20px;
-  padding: 16px 20px;
-  border-radius: var(--radius-md);
-  font-size: 0.92rem;
-  line-height: 1.55;
-  text-align: center;
-}
-
-.form-feedback.hidden {
-  display: none;
-}
-
-.form-feedback.info {
-  background-color: #F0EAE1;
-  color: var(--color-olive-deep);
-  border: 1px solid var(--color-border);
-}
-
-.form-feedback.error {
-  background-color: #FFF1ED;
-  color: #794628;
-  border: 1px solid #E7B9A7;
-}
-
-.form-feedback.success {
-  background-color: #EEF5EC;
-  color: #31543A;
-  border: 1px solid #BFD2BA;
 }
 
 /* ========================================================
