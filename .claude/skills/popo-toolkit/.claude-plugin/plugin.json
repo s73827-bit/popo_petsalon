@@ -1,0 +1,8 @@
+{
+  "name": "popo-toolkit",
+  "description": "PoPo애견미용실 웹사이트 운영 도구: 매장 정보 반영, 고객 노출 문구 점검, 브랜드 가이드, 네이버/구글 SEO 점검, 사이트 리뷰 에이전트",
+  "version": "1.0.0",
+  "author": {
+    "name": "장호"
+  }
+}

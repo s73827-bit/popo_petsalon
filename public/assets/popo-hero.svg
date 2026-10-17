@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" fill="none">
+  <!-- Warm Quiet Editorial Background -->
+  <rect width="900" height="600" fill="#F4EFE6" />
+  
+  <!-- Soft Organic Background Blobs -->
+  <path d="M520 120C640 90 780 140 820 270C860 400 750 510 620 520C490 530 430 420 440 290C450 160 500 130 520 120Z" fill="#EAE2D4" opacity="0.6" />
+  <circle cx="280" cy="460" r="140" fill="#E6DDD0" opacity="0.4" />
+
+  <!-- Care Arc / Halo -->
+  <path d="M380 430C460 480 620 480 720 400" stroke="#71806A" stroke-width="3" stroke-dasharray="6 8" stroke-linecap="round" opacity="0.6" />
+
+  <!-- Botanical / Leaf Branch (Gentle Care Accent) -->
+  <path d="M260 380C300 350 350 360 390 390" stroke="#4F614C" stroke-width="3" stroke-linecap="round" />
+  <path d="M300 360C300 340 315 330 325 340C335 350 320 365 300 360Z" fill="#4F614C" />
+  <path d="M340 365C345 345 365 340 370 355C375 370 355 375 340 365Z" fill="#71806A" />
+
+  <!-- Minimal Grooming Comb Element -->
+  <rect x="230" y="260" width="160" height="26" rx="8" fill="#A84C1C" transform="rotate(-15 230 260)" />
+  <!-- Comb teeth -->
+  <path d="M245 285L240 320M255 282L250 317M265 279L260 314M275 276L270 311M285 273L280 308M295 270L290 305M305 267L300 302M315 264L310 299M325 261L320 296M335 258L330 293M345 255L340 290M355 252L350 287M365 249L360 284" stroke="#7A340F" stroke-width="3.5" stroke-linecap="round" />
+
+  <!-- Calm Abstract Dog Silhouette -->
+  <!-- Back / Body Contour -->
+  <path d="M480 430C470 340 520 270 590 260C640 250 680 280 710 320C735 355 745 400 740 440C700 455 560 455 480 430Z" fill="#FFFFFF" />
+  
+  <!-- Front Paws -->
+  <path d="M510 420C500 435 505 450 525 450C545 450 550 435 545 415" fill="#FFFFFF" />
+  <path d="M555 420C550 435 555 450 575 450C595 450 600 435 590 415" fill="#FFFFFF" />
+
+  <!-- Dog Head (Calm, resting, peaceful) -->
+  <ellipse cx="610" cy="240" rx="65" ry="58" fill="#FFFFFF" />
+  
+  <!-- Left Fluffy Ear -->
+  <path d="M545 210C530 230 525 275 545 295C560 310 575 295 570 270C565 245 555 215 545 210Z" fill="#F0EAE1" />
+  
+  <!-- Right Fluffy Ear -->
+  <path d="M675 210C690 230 695 275 675 295C660 310 645 295 650 270C655 245 665 215 675 210Z" fill="#F0EAE1" />
+
+  <!-- Snout / Muzzle -->
+  <ellipse cx="610" cy="262" rx="34" ry="26" fill="#F8F4EC" />
+
+  <!-- Nose -->
+  <path d="M610 254C603 248 593 248 593 256C593 266 610 276 610 276C610 276 627 266 627 256C627 248 617 248 610 254Z" fill="#26352C" />
+
+  <!-- Calm Resting Eyes (Curved happy/peaceful lines) -->
+  <path d="M584 238C589 233 597 233 601 238" stroke="#26352C" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M619 238C624 233 632 233 636 238" stroke="#26352C" stroke-width="3.5" stroke-linecap="round" />
+
+  <!-- Care Ribbon / Collar -->
+  <path d="M565 285C585 305 635 305 655 285" stroke="#A84C1C" stroke-width="6" stroke-linecap="round" />
+  <circle cx="610" cy="304" r="6" fill="#71806A" />
+
+  <!-- Subtle Quote in Corner for editorial touch -->
+  <text x="60" y="540" font-family="'Pretendard', sans-serif" font-size="14" font-weight="600" fill="#4F614C" letter-spacing="1.5">
+    POPO QUIET CARE · DOG &amp; GUARDIAN
+  </text>
+</svg>

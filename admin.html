@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POPO 관리자 대시보드</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <div class="container admin-header-inner">
+      <a class="admin-brand" href="/">POPO <span>ADMIN</span></a>
+      <div class="admin-header-actions">
+        <span id="adminIdentity" class="admin-identity"></span>
+        <a class="admin-back-link" href="/">사이트 보기</a>
+        <a class="admin-logout-link hidden" id="adminLogout" href="/api/auth/logout">로그아웃</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main container" id="adminApp">
+    <section id="adminGate" class="admin-gate-card">
+      <span class="section-category">POPO ADMIN</span>
+      <h1>관리자 로그인이 필요합니다.</h1>
+      <p>리뷰, 미용 케이스, 예약 문의는 허용된 Manus 관리자 계정만 확인할 수 있습니다.</p>
+      <a class="btn btn-primary btn-large" href="/api/auth/login">Manus 계정으로 로그인</a>
+      <div id="adminTestLogin" class="admin-test-login hidden">
+        <div class="admin-test-divider"><span>임시 테스트 로그인</span></div>
+        <p class="admin-muted">주소에 `?test=1`을 붙인 경우에만 표시되는 15분 테스트 세션입니다.</p>
+        <form id="testPinForm" class="test-pin-form">
+          <label for="testPin">테스트 PIN</label>
+          <div class="test-pin-row"><input id="testPin" name="pin" inputmode="numeric" autocomplete="one-time-code" maxlength="32" required placeholder="PIN 입력" /><button class="btn btn-secondary" type="submit">테스트 로그인</button></div>
+        </form>
+        <p id="testPinFeedback" class="admin-feedback" role="status"></p>
+      </div>
+      <p id="adminGateMessage" class="admin-muted"></p>
+    </section>
+
+    <div id="adminWorkspace" class="hidden">
+      <div class="admin-test-warning" id="adminTestWarning" role="alert"><strong>임시 PIN 테스트 세션</strong><span>현재 15분짜리 테스트 인증으로 접근 중입니다. 실제 운영 관리자 작업은 Manus OAuth로 로그인하세요.</span></div>
+      <div class="admin-page-heading">
+        <div>
+          <span class="section-category">POPO ADMIN DASHBOARD</span>
+          <h1>운영 자료를 한눈에 관리하세요.</h1>
+          <p>리뷰는 공개 목록에서 숨김 처리되고, 케이스와 예약 문의는 실제 운영 기록으로 관리됩니다.</p>
+        </div>
+        <div class="admin-stat-grid" aria-label="관리 통계">
+          <div class="admin-stat-card"><span>공개 리뷰</span><strong id="reviewCount">0</strong></div>
+          <div class="admin-stat-card"><span>케이스 스토리</span><strong id="caseCount">0</strong></div>
+          <div class="admin-stat-card"><span>새 예약 문의</span><strong id="newReservationCount">0</strong></div>
+        </div>
+      </div>
+
+      <section class="admin-panel" aria-labelledby="adminReviewsHeading">
+        <div class="admin-panel-heading">
+          <div><span class="section-category">POPO REVIEW</span><h2 id="adminReviewsHeading">리뷰 관리</h2></div>
+          <button class="btn btn-secondary" type="button" id="refreshReviews">새로고침</button>
+        </div>
+        <div id="adminReviewsList" class="admin-list"><p class="admin-muted">불러오는 중…</p></div>
+      </section>
+
+      <section class="admin-panel" aria-labelledby="adminCasesHeading">
+        <div class="admin-panel-heading">
+          <div><span class="section-category">GROOMING STORY</span><h2 id="adminCasesHeading">미용 케이스 스토리 작성·관리</h2></div>
+        </div>
+        <form id="caseForm" class="admin-form" enctype="multipart/form-data">
+          <input type="hidden" name="caseId" id="caseId" />
+          <div class="admin-form-grid">
+            <label>케이스 제목 <input name="title" required maxlength="160" placeholder="예: 첫 방문, 편안한 곰돌이컷" /></label>
+            <label>견종 <input name="breed" maxlength="80" placeholder="예: 토이푸들" /></label>
+            <label class="admin-form-full">BEFORE 상태 설명 <textarea name="beforeText" required rows="3" placeholder="미용 전 털·피모 상태와 보호자 요청을 기록합니다."></textarea></label>
+            <label class="admin-form-full">AFTER 결과 설명 <textarea name="afterText" required rows="3" placeholder="맞춤 미용 결과와 아이의 반응을 기록합니다."></textarea></label>
+            <label>BEFORE 사진 <input type="file" name="beforeImage" accept="image/jpeg,image/png,image/webp" /></label>
+            <label>AFTER 사진 <input type="file" name="afterImage" accept="image/jpeg,image/png,image/webp" /></label>
+            <label class="admin-form-full">CARE NOTE <textarea name="careNote" rows="2" placeholder="다음 방문까지의 빗질·관리 참고사항"></textarea></label>
+          </div>
+          <div class="admin-form-actions">
+            <button class="btn btn-primary" type="submit" id="caseSubmit">케이스 저장</button>
+            <button class="btn btn-secondary" type="button" id="caseCancel">새 케이스로 초기화</button>
+          </div>
+          <p id="caseFeedback" class="admin-feedback" role="status"></p>
+        </form>
+        <div id="adminCasesList" class="admin-list"><p class="admin-muted">불러오는 중…</p></div>
+      </section>
+
+      <section class="admin-panel" aria-labelledby="adminReservationsHeading">
+        <div class="admin-panel-heading">
+          <div><span class="section-category">RESERVATION INQUIRIES</span><h2 id="adminReservationsHeading">예약 문의 관리</h2></div>
+          <button class="btn btn-secondary" type="button" id="refreshReservations">새로고침</button>
+        </div>
+        <div id="adminReservationsList" class="admin-list"><p class="admin-muted">불러오는 중…</p></div>
+      </section>
+
+      <section class="admin-panel admin-payment-panel" aria-labelledby="adminPaymentHeading">
+        <div><span class="section-category">STRIPE PREPARATION</span><h2 id="adminPaymentHeading">결제 연동 준비 상태</h2></div>
+        <p id="paymentPreparationStatus">상품·가격을 등록하기 전까지 Checkout은 비활성화되어 있습니다. 카드 정보는 POPO 서버에 저장하지 않습니다.</p>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/src/admin.js"></script>
+</body>
+</html>

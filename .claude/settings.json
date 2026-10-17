@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(pnpm run *)",
+      "Bash(yarn run *)",
+      "Bash(npx tsc *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Skill(popo-toolkit:update-info)",
+      "Skill(popo-toolkit:copy-check)",
+      "Skill(popo-toolkit:brand-guide)",
+      "Skill(popo-toolkit:seo-audit)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  }
+}
