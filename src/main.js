@@ -1,5 +1,5 @@
 // POPO 애견미용샵 공개 페이지 인터랙션
-// 모바일 메뉴, FAQ, 예약 안내, 브라우저 기반 후기 작성
+// 모바일 메뉴, FAQ, 브라우저 기반 후기 작성
 
 const REVIEW_STORAGE_KEY = 'popo-local-reviews-v1';
 const REVIEW_LIMIT = 30;
@@ -8,7 +8,6 @@ const $ = (selector, root = document) => root.querySelector(selector);
 window.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initFaqAccordion();
-  initReservationForm();
   initReviewForm();
 });
 
@@ -59,73 +58,8 @@ function initFaqAccordion() {
   });
 }
 
-function initReservationForm() {
-  const form = $('#reservationForm');
-  const feedback = $('#formFeedback');
-  if (!form || !feedback) return;
-
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const fields = readReservationFields(form);
-    resetFeedback(feedback);
-
-    if (hasMissingReservationField(fields)) {
-      showReservationValidation(feedback);
-    } else {
-      showReservationSummary(feedback, fields);
-    }
-
-    feedback.classList.remove('hidden');
-    feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  });
-}
-
-function readReservationFields(form) {
-  return {
-    ownerName: getFieldValue(form, 'ownerName'),
-    ownerPhone: getFieldValue(form, 'ownerPhone'),
-    petName: getFieldValue(form, 'petName'),
-    petBreed: getFieldValue(form, 'petBreed'),
-    petWeight: getFieldValue(form, 'petWeight'),
-    serviceType: getFieldValue(form, 'serviceType'),
-  };
-}
-
 function getFieldValue(form, fieldName) {
   return form.elements.namedItem(fieldName)?.value?.trim() || '';
-}
-
-function hasMissingReservationField(fields) {
-  return ['ownerName', 'ownerPhone', 'petName', 'petBreed', 'petWeight', 'serviceType']
-    .some((fieldName) => !fields[fieldName]);
-}
-
-function resetFeedback(feedback, tone = 'info') {
-  feedback.className = `form-feedback ${tone}`;
-  feedback.textContent = '';
-}
-
-function showReservationValidation(feedback) {
-  const title = document.createElement('strong');
-  title.textContent = '입력 항목 확인 안내';
-  const message = document.createElement('span');
-  message.textContent = '필수 항목(보호자 성함, 연락처, 반려견 이름, 견종, 체중, 희망 서비스)을 모두 입력해 주세요.';
-  const note = document.createElement('small');
-  note.className = 'feedback-note';
-  note.textContent = '현재는 안내용 화면이며, 예약 정보는 서버로 전송되거나 저장되지 않습니다.';
-  feedback.append(title, document.createElement('br'), message, document.createElement('br'), note);
-}
-
-function showReservationSummary(feedback, fields) {
-  const title = document.createElement('strong');
-  title.textContent = '양식 구성 확인 완료';
-  const greeting = document.createElement('p');
-  greeting.className = 'feedback-greeting';
-  greeting.textContent = `«${fields.ownerName}» 보호자님과 «${fields.petName}»(${fields.petBreed}, ${fields.petWeight}) 아이를 위한 맞춤 케어 양식이 구성되었습니다.`;
-  const note = document.createElement('span');
-  note.className = 'feedback-note feedback-notice';
-  note.textContent = '현재 사이트는 오픈 준비용 안내 페이지입니다. 예약 신청은 매장 공식 채널을 통해 순차적으로 진행됩니다.';
-  feedback.append(title, document.createElement('br'), greeting, note);
 }
 
 function initReviewForm() {
