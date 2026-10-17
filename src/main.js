@@ -8,17 +8,17 @@ window.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
 });
 
+// 메뉴는 한 벌(#siteNav)만 있다. 데스크톱에서는 CSS로 항상 보이고, 모바일에서만 토글한다.
 function initMobileNav() {
-  const toggleButton = $('#mobileNavToggle');
-  const mobileNav = $('#mobileNav');
-  const links = document.querySelectorAll('.mobile-nav-link');
+  const toggleButton = $('#navToggle');
+  const mobileNav = $('#siteNav');
+  const links = document.querySelectorAll('#siteNav .nav-link');
 
   if (!toggleButton || !mobileNav) return;
 
   const setMenuState = (isOpen) => {
     mobileNav.classList.toggle('is-open', isOpen);
     toggleButton.setAttribute('aria-expanded', String(isOpen));
-    mobileNav.setAttribute('aria-hidden', String(!isOpen));
     toggleButton.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
   };
 

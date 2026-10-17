@@ -6,7 +6,7 @@
   <title>POPO | 안양 관양동 애견미용 · 안심 맞춤 케어</title>
   <meta name="description" content="예뻐지는 시간보다 안심하는 시간을. 안양시 동안구 관양동 애견미용샵 POPO 공식 홈페이지. 강아지와 보호자를 함께 생각하는 1:1 맞춤 미용과 지속적인 케어 기록." />
   <meta name="keywords" content="안양, 동안구, 관양동, 강아지 미용, 애견미용, 전체미용, 부분미용, 강아지 목욕, 맞춤미용" />
-  <meta name="theme-color" content="#26352C" />
+  <meta name="theme-color" content="#FFFCF5" />
 
   <!-- Open Graph / SNS -->
   <meta property="og:type" content="website" />
@@ -19,9 +19,8 @@
   <meta name="twitter:description" content="강아지와 보호자를 함께 생각하는 미용실. 안양 관양동 애견미용 POPO." />
   <meta name="twitter:image" content="/popo-logo.png" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/popo-logo.svg" />
-  <link rel="alternate icon" type="image/png" href="/popo-logo.png" />
+  <!-- Favicon: TODO(로고) 원본 로고로 만든 파비콘을 넣으면 여기에 link rel="icon"을 추가한다.
+       기존 /popo-logo.svg는 Manus가 그린 임시 엠블럼이라 연결을 뺐다. -->
 
   <!-- Preconnect Fonts -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
@@ -69,92 +68,59 @@
   <!-- Header / Nav -->
   <header class="site-header" id="top">
     <div class="header-inner">
-      <a href="#home" class="brand-link" aria-label="PoPo 홈으로 이동">
-        <span class="brand-symbol">
-          <svg viewBox="0 0 40 40" width="32" height="32" fill="none" aria-hidden="true">
-            <rect width="40" height="40" rx="20" fill="#26352C" />
-            <circle cx="20" cy="20" r="14" fill="#71806A" opacity="0.3" />
-            <ellipse cx="20" cy="21" rx="7" ry="6" fill="#F8F4EC" />
-            <path d="M12 15C10 18 11 22 13 23C15 24 16 22 15 20Z" fill="#F8F4EC" />
-            <path d="M28 15C30 18 29 22 27 23C25 24 24 22 25 20Z" fill="#F8F4EC" />
-            <path d="M14 26C16 28.5 18 29.5 20 29.5C22 29.5 24 28.5 26 26" stroke="#D88A63" stroke-width="1.8" stroke-linecap="round" />
-            <circle cx="20" cy="21.5" r="1.3" fill="#26352C" />
-          </svg>
-        </span>
-        <span class="brand-text">
-          <strong class="brand-name">PoPo</strong>
-          <span class="brand-tag">Grooming &amp; Care</span>
-        </span>
+      <!-- TODO(로고): public/brand/popo-logo.png가 들어오면 아래 텍스트 로고 앞에
+           <img src="/brand/popo-logo.png" alt="" class="brand-logo" width="40" height="40" /> 를 추가한다. -->
+      <a href="#home" class="brand-link" aria-label="PoPo애견미용실 홈으로 이동">
+        <span class="brand-name">PoPo</span>
+        <span class="brand-tag">애견미용실</span>
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="desktop-nav" aria-label="주요 메뉴">
+      <!-- 메뉴 한 벌: 데스크톱에서는 가로 메뉴, 모바일에서는 토글 드로어 -->
+      <nav class="site-nav" id="siteNav" aria-label="주요 메뉴">
         <ul class="nav-list">
-          <li><a href="#story" class="nav-link">소개</a></li>
-          <li><a href="#why-popo" class="nav-link">차별화</a></li>
+          <li><a href="#about" class="nav-link">소개</a></li>
           <li><a href="#services" class="nav-link">서비스</a></li>
-          <li><a href="#custom-grooming" class="nav-link">맞춤케어</a></li>
-          <li><a href="#price-guide" class="nav-link">가격안내</a></li>
-          <li><a href="#first-visit" class="nav-link">첫방문안내</a></li>
+          <li><a href="#first-visit" class="nav-link">첫 방문</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
-          <li><a href="#location" class="nav-link">오시는길</a></li>
+          <li><a href="#location" class="nav-link">오시는 길</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="#reservation" class="btn btn-header-cta" aria-label="예약 안내 및 신청으로 이동">예약하기</a>
-        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="메뉴 열기">
+        <a href="#reservation" class="btn btn-primary btn-header-cta">예약 안내</a>
+        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="메뉴 열기">
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
         </button>
       </div>
     </div>
-
-    <!-- Mobile Navigation Drawer -->
-    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
-      <div class="mobile-nav-inner">
-        <ul class="mobile-nav-list">
-          <li><a href="#story" class="mobile-nav-link">PoPo STORY</a></li>
-          <li><a href="#why-popo" class="mobile-nav-link">WHY PoPo</a></li>
-          <li><a href="#services" class="mobile-nav-link">SERVICE</a></li>
-          <li><a href="#custom-grooming" class="mobile-nav-link">CUSTOM GROOMING</a></li>
-          <li><a href="#popo-care" class="mobile-nav-link">PoPo CARE</a></li>
-          <li><a href="#care-record" class="mobile-nav-link">CARE RECORD</a></li>
-          <li><a href="#price-guide" class="mobile-nav-link">PRICE GUIDE</a></li>
-          <li><a href="#first-visit" class="mobile-nav-link">FIRST VISIT</a></li>
-          <li><a href="#journey" class="mobile-nav-link">CARE JOURNEY</a></li>
-          <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
-          <li><a href="#location" class="mobile-nav-link">LOCATION</a></li>
-          <li><a href="#reservation" class="mobile-nav-link mobile-nav-highlight">예약하기</a></li>
-        </ul>
-      </div>
-    </div>
   </header>
 
   <main id="main-content">
-    <!-- 1. HOME / HERO -->
+    <!-- 1. HERO -->
     <section class="hero-section" id="home" aria-labelledby="hero-heading">
       <div class="container hero-container">
         <div class="hero-content">
-          <div class="brand-badge-row">
-            <span class="badge badge-accent">안양시 동안구 관양동 애견미용</span>
-            <span class="badge badge-subtle">안심 1:1 맞춤 미용실</span>
+          <div class="badge-row">
+            <span class="badge">안양 관양동 애견미용</span>
+            <span class="badge badge-outline">100% 예약제</span>
           </div>
 
           <h1 id="hero-heading" class="hero-title">
             예뻐지는 시간보다,<br />
-            <span class="text-serif-highlight">안심하는 시간을.</span>
+            안심하는 시간을.
           </h1>
 
           <p class="hero-subtext">
-            우리 아이가 편안해야 미용도 예뻐집니다.<br />
-            상담부터 맞춤 미용, 미용 기록과 다음 방문까지 안양 관양동 애견미용 포포(PoPo)가 우리 아이를 세심하게 관리합니다.
+            안양 관양동 애견미용 포포(PoPo)는 강아지 성향에 맞춘 1:1 맞춤 그루밍으로
+            우리 아이가 편안하게 미용받을 수 있도록 돕습니다.
           </p>
 
+          <!-- [매장정보] 첫 화면 연락 버튼 -->
           <div class="hero-actions">
-            <a href="#reservation" class="btn btn-primary btn-large">예약하기</a>
-            <a href="#story" class="btn btn-secondary btn-large">PoPo 알아보기</a>
+            <a href="tel:01055897031" class="btn btn-primary btn-large">전화 예약</a>
+            <a href="https://pf.kakao.com/_UJDxiX" target="_blank" rel="noopener" class="btn btn-kakao btn-large">카카오톡 문의</a>
           </div>
 
           <!-- [매장정보] 오픈 이벤트 (기간: 2026-10-17 ~ 2026-12-30). 종료 후 이 블록을 삭제한다. -->
@@ -165,732 +131,254 @@
             <p class="event-period">2026.10.17 ~ 2026.12.30</p>
           </aside>
 
-          <div class="hero-note-strip">
-            <span class="dot-indicator"></span>
-            <!-- [매장정보] 주소 -->
-            <span>강아지와 보호자를 함께 생각하는 미용실 · 경기 안양시 동안구 관양로 145 1층 101호</span>
-          </div>
+          <!-- [매장정보] 주소·영업시간 -->
+          <p class="hero-note">
+            경기 안양시 동안구 관양로 145 1층 101호 · 월~토 09:30 ~ 20:00 (일요일 휴무)
+          </p>
         </div>
 
         <div class="hero-visual">
-          <div class="hero-image-card">
-            <img 
-              src="/assets/popo-hero.svg" 
-              alt="PoPo 브랜드 무드 일러스트 - 편안하게 쉬고 있는 강아지와 빗"
-              class="hero-img"
-              loading="eager"
-            />
-            <div class="hero-image-caption">
-              <span class="caption-tag">브랜드 일러스트</span>
-              <span class="caption-text">실제 고객 사례가 아닌 PoPo의 안심 케어 철학을 담은 무드 비주얼입니다.</span>
-            </div>
-          </div>
+          <!-- TODO(로고): public/brand/popo-logo.png가 들어오면 src를 /brand/popo-logo.png로,
+               alt를 "PoPo애견미용실 로고 - 크림색 비숑 일러스트"로 바꾼다. 그 전까지 기존 일러스트 유지. -->
+          <img
+            src="/assets/popo-hero.svg"
+            alt="편안하게 쉬고 있는 강아지와 빗 일러스트"
+            class="hero-img"
+            width="900"
+            height="600"
+            loading="eager"
+          />
         </div>
       </div>
     </section>
 
-    <!-- 2. POPO STORY -->
-    <section class="section section-story" id="story" aria-labelledby="story-heading">
+    <!-- 2. ABOUT (기존 소개·차별화·맞춤케어·PoPo CARE·케어 기록·케어 저니 통합) -->
+    <section class="section section-alt" id="about" aria-labelledby="about-heading">
       <div class="container">
         <div class="section-header text-center">
-          <span class="section-category">PoPo STORY</span>
-          <h2 id="story-heading" class="section-title">
+          <span class="section-category">ABOUT PoPo</span>
+          <h2 id="about-heading" class="section-title">
             단순히 털을 깎는 곳이 아니라,<br />
-            <span class="text-olive">보호자가 안심하고 다시 찾는 곳.</span>
+            보호자가 안심하고 다시 찾는 곳.
           </h2>
           <p class="section-description">
-            PoPo는 광고를 요란하게 많이 하는 미용실보다, 아이가 스트레스 없이 머물고 보호자가 믿고 맡길 수 있는 든든한 공간을 약속합니다.
+            한 번 예쁘게 만드는 미용보다, 아이를 이해하고 계속 관리하는 미용을 합니다.
+            상담부터 미용 기록까지, 아이와 보호자를 함께 생각하며 진행합니다.
           </p>
         </div>
 
-        <div class="story-grid">
-          <article class="story-card">
-            <div class="story-number">01</div>
-            <h3 class="story-card-title">브랜드 한 문장</h3>
-            <p class="story-card-quote">강아지와 보호자를 함께 생각하는 미용실.</p>
-            <p class="story-card-text">
-              미용은 강아지에게만 일어나는 일이 아닙니다. 맡기는 보호자의 불안한 마음, 집으로 돌아간 뒤 아이의 컨디션까지 세심하게 살핍니다.
-            </p>
-          </article>
+        <ol class="process-grid">
+          <li class="process-card">
+            <span class="process-num">01</span>
+            <h3 class="process-title">상담</h3>
+            <p class="process-desc">평소 생활습관, 빗질 반응, 최근 건강 변화와 보호자가 바라는 스타일을 충분히 듣습니다.</p>
+          </li>
+          <li class="process-card">
+            <span class="process-num">02</span>
+            <h3 class="process-title">상태 확인</h3>
+            <p class="process-desc">피모 엉킴, 피부 붉어짐, 귀와 관절의 민감도, 오늘의 긴장도를 미용 전에 꼼꼼히 살핍니다.</p>
+          </li>
+          <li class="process-card">
+            <span class="process-num">03</span>
+            <h3 class="process-title">맞춤 미용</h3>
+            <p class="process-desc">성격, 털·피부 상태, 생활환경, 원하는 스타일에 맞춰 아이에게 무리가 가지 않는 속도로 다듬습니다.</p>
+          </li>
+          <li class="process-card">
+            <span class="process-num">04</span>
+            <h3 class="process-title">기록과 다음 방문</h3>
+            <p class="process-desc">부위별 반응과 주의할 점, 권장 미용 주기를 기록해 다음 방문 때 그대로 이어갑니다.</p>
+          </li>
+        </ol>
 
-          <article class="story-card">
-            <div class="story-number">02</div>
-            <h3 class="story-card-title">브랜드 목적</h3>
-            <p class="story-card-quote">강아지에게는 편안함을, 보호자에게는 안심을 주기 위해.</p>
-            <p class="story-card-text">
-              서두르지 않는 속도, 아이의 신호를 존중하는 손길, 투명한 소통으로 미용실 문을 열 때마다 가벼운 발걸음이 되도록 만듭니다.
-            </p>
-          </article>
-
-          <article class="story-card story-card-highlight">
-            <div class="story-number">03</div>
-            <h3 class="story-card-title">핵심 메시지</h3>
-            <p class="story-card-quote">우리 아이가 편안해야 미용도 예뻐집니다.</p>
-            <p class="story-card-text">
-              긴장한 아이를 억지로 다잡지 않습니다. 컨디션을 읽고 속도를 조절할 때 비로소 자연스럽고 사랑스러운 스타일이 완성됩니다.
-            </p>
-          </article>
-        </div>
-
-        <div class="story-statement-box">
-          <p class="statement-main">
-            «한 번 예쁘게 만드는 미용보다, 아이를 이해하고 계속 관리하는 미용을 합니다.»
-          </p>
-          <div class="care-flow-banner">
-            <span class="flow-step">상담</span>
-            <span class="flow-arrow">→</span>
-            <span class="flow-step">상태 확인</span>
-            <span class="flow-arrow">→</span>
-            <span class="flow-step">맞춤 미용</span>
-            <span class="flow-arrow">→</span>
-            <span class="flow-step">결과 확인</span>
-            <span class="flow-arrow">→</span>
-            <span class="flow-step">미용 기록</span>
-            <span class="flow-arrow">→</span>
-            <span class="flow-step">다음 방문</span>
-          </div>
+        <div class="care-box">
+          <p class="care-quote">«예쁜 미용도 중요하지만, 아이가 편안하게 돌아가는 것이 먼저입니다.»</p>
+          <ul class="care-list">
+            <li><strong>안전 확인</strong> 미용 전 눈·코·귀·관절·피부 상태를 먼저 살펴봅니다.</li>
+            <li><strong>편안한 진행</strong> 거부감을 보이면 힘으로 제압하지 않고, 쉬어 가며 진행합니다.</li>
+            <li><strong>위생 관리</strong> 미용 도구와 테이블, 욕조를 청결하게 관리합니다.</li>
+            <li><strong>보호자 소통</strong> 미용 중 발견한 피부 상태나 특이사항은 바로 솔직하게 알려 드립니다.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- 3. WHY POPO -->
-    <section class="section section-why" id="why-popo" aria-labelledby="why-heading">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-category">WHY PoPo</span>
-          <h2 id="why-heading" class="section-title">
-            PoPo는 미용보다 먼저, 아이를 생각합니다.
-          </h2>
-          <p class="section-description">
-            모든 과정은 아이와 보호자를 향한 경청에서 시작해, 다음 방문을 위한 세심한 기록으로 완성됩니다.
-          </p>
-        </div>
-
-        <div class="why-process-grid">
-          <div class="process-card">
-            <div class="process-step-num">01</div>
-            <div class="process-step-tag">상담</div>
-            <h3 class="process-step-title">보호자의 이야기를 먼저 듣습니다.</h3>
-            <p class="process-step-desc">
-              평소 생활습관, 빗질 반응, 최근 건강 변화나 보호자가 바라는 라인을 충분한 시간을 들여 듣습니다.
-            </p>
-          </div>
-
-          <div class="process-card">
-            <div class="process-step-num">02</div>
-            <div class="process-step-tag">상태 확인</div>
-            <h3 class="process-step-title">아이의 컨디션과 특성을 살핍니다.</h3>
-            <p class="process-step-desc">
-              피모 엉킴, 피부 붉어짐, 귀와 관절의 민감도, 오늘의 기분과 긴장도를 테이블에 오르기 전 꼼꼼히 확인합니다.
-            </p>
-          </div>
-
-          <div class="process-card">
-            <div class="process-step-num">03</div>
-            <div class="process-step-tag">맞춤 미용</div>
-            <h3 class="process-step-title">아이에게 맞는 방법으로 진행합니다.</h3>
-            <p class="process-step-desc">
-              획일화된 클리핑이 아닌, 아이의 체형·모질·체력에 무리가 가지 않는 호흡으로 세심하게 다듬습니다.
-            </p>
-          </div>
-
-          <div class="process-card">
-            <div class="process-step-num">04</div>
-            <div class="process-step-tag">지속 관리</div>
-            <h3 class="process-step-title">미용 기록을 남겨 다음 방문까지 이어갑니다.</h3>
-            <p class="process-step-desc">
-              미용 시 반응과 주의점을 기록해 다음 방문 때 아이를 처음 보는 것처럼 대하지 않도록 이어갑니다.
-            </p>
-          </div>
-        </div>
-
-        <div class="worries-resolution-box">
-          <h3 class="worries-title">보호자의 7가지 걱정, PoPo의 대답</h3>
-          <div class="worries-grid">
-            <div class="worry-item">
-              <span class="worry-q">Q1. 우리 아이가 미용을 힘들어하지 않을까?</span>
-              <p class="worry-a">중간중간 쉬는 템포를 두고 강아지의 신호에 맞춰 속도를 조절합니다.</p>
-            </div>
-            <div class="worry-item">
-              <span class="worry-q">Q2. 내가 원하는 스타일을 제대로 이해할까?</span>
-              <p class="worry-a">사진과 실물 상담을 통해 원하는 포인트와 실제 모질의 균형점을 맞춥니다.</p>
-            </div>
-            <div class="worry-item">
-              <span class="worry-q">Q3. 털이나 피부 상태를 제대로 확인할까?</span>
-              <p class="worry-a">미용 전 촉진과 브러싱 과정에서 피부 상태를 살피고 특이사항을 공유합니다.</p>
-            </div>
-            <div class="worry-item">
-              <span class="worry-q">Q4. 미용 결과가 마음에 들까?</span>
-              <p class="worry-a">픽업 시 보호자와 함께 라인을 확인하고 관리 팁을 차분하게 나눕니다.</p>
-            </div>
-            <div class="worry-item">
-              <span class="worry-q">Q5. 다음 방문에도 우리 아이 특성을 기억할까?</span>
-              <p class="worry-a">관리 차트에 성향과 주의사항을 남겨 방문할수록 더 자연스러워집니다.</p>
-            </div>
-            <div class="worry-item">
-              <span class="worry-q">Q6. 가격이 갑자기 달라지지는 않을까?</span>
-              <p class="worry-a">미용 전 상담을 통해 예상 비용을 정직하고 투명하게 안내합니다.</p>
-            </div>
-            <div class="worry-item">
-              <span class="worry-q">Q7. 처음 방문해도 괜찮을까?</span>
-              <p class="worry-a">첫 방문일수록 더 넉넉하게 대화하고 천천히 적응할 수 있도록 배려합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. SERVICE -->
-    <section class="section section-service" id="services" aria-labelledby="services-heading">
+    <!-- 3. SERVICE & PRICE -->
+    <section class="section" id="services" aria-labelledby="services-heading">
       <div class="container">
         <div class="section-header">
           <span class="section-category">SERVICE</span>
           <h2 id="services-heading" class="section-title">기본에 충실한 맞춤 미용 메뉴</h2>
           <p class="section-description">
-            아이의 모질, 생활 루틴, 계절에 맞춘 세분화된 케어를 제공합니다. 가격은 상담 시 상세 내역과 함께 안내합니다.
+            아이의 모질, 생활 루틴, 계절에 맞춘 케어를 제공합니다.
           </p>
         </div>
 
-        <div class="service-cards-grid">
-          <!-- 01 전체미용 -->
+        <div class="service-grid">
           <article class="service-card">
-            <div class="service-card-header">
-              <span class="service-index">01</span>
-              <h3 class="service-title">전체미용</h3>
-            </div>
-            <p class="service-summary">
-              아이의 특성과 보호자가 원하는 스타일을 상담 후 진행합니다.
-            </p>
-            <ul class="service-detail-list">
-              <li>아이의 체형과 모량에 맞는 맞춤형 가위컷 및 클리핑</li>
-              <li>체력 안배를 고려한 휴식 시간 분배</li>
+            <h3 class="service-title"><span class="service-index">01</span>전체미용</h3>
+            <p class="service-summary">아이의 특성과 보호자가 원하는 스타일을 상담 후 진행합니다.</p>
+            <ul class="service-list">
+              <li>체형과 모량에 맞는 가위컷 및 클리핑</li>
+              <li>체력을 고려한 휴식 시간 분배</li>
               <li>목욕, 드라이, 위생 기본 케어 포함</li>
             </ul>
-            <div class="service-card-footer">
-              <span class="status-chip">상담 후 맞춤 진행</span>
-            </div>
           </article>
 
-          <!-- 02 부분미용 -->
           <article class="service-card">
-            <div class="service-card-header">
-              <span class="service-index">02</span>
-              <h3 class="service-title">부분미용</h3>
-            </div>
-            <p class="service-summary">
-              얼굴·발·위생 등 필요한 부분을 선택하여 집중 관리합니다.
-            </p>
-            <ul class="service-detail-list">
-              <li>눈 앞을 가리는 털 정리 및 표정 살리기</li>
-              <li>발바닥 패드 털 정리와 위생 라인 케어</li>
-              <li>전체 미용 주기 사이의 쾌적한 유지 관리</li>
+            <h3 class="service-title"><span class="service-index">02</span>부분미용</h3>
+            <p class="service-summary">얼굴·발·위생 등 필요한 부분을 선택해 집중 관리합니다.</p>
+            <ul class="service-list">
+              <li>눈 앞을 가리는 털 정리</li>
+              <li>발바닥 패드 털과 위생 라인 정리</li>
+              <li>전체미용 주기 사이의 유지 관리</li>
             </ul>
-            <div class="service-card-footer">
-              <span class="status-chip">필요 부위 선택</span>
-            </div>
           </article>
 
-          <!-- 03 목욕·드라이 -->
           <article class="service-card">
-            <div class="service-card-header">
-              <span class="service-index">03</span>
-              <h3 class="service-title">목욕·드라이</h3>
-            </div>
-            <p class="service-summary">
-              털과 피부 상태를 확인한 후 적합한 샴푸와 온도로 진행합니다.
-            </p>
-            <ul class="service-detail-list">
-              <li>피부 자극을 줄인 부드러운 수압과 저자극 세정</li>
-              <li>엉킨 털을 부드럽게 푸는 슬리커 드라잉</li>
+            <h3 class="service-title"><span class="service-index">03</span>목욕·드라이</h3>
+            <p class="service-summary">털과 피부 상태를 확인한 후 적합한 샴푸와 온도로 진행합니다.</p>
+            <ul class="service-list">
+              <li>부드러운 수압과 저자극 세정</li>
+              <li>엉킨 털을 부드럽게 푸는 드라잉</li>
               <li>귀 세정 및 피부 컨디션 체크</li>
             </ul>
-            <div class="service-card-footer">
-              <span class="status-chip">피모 컨디션 맞춤</span>
-            </div>
           </article>
 
-          <!-- 04 기본 케어 -->
           <article class="service-card">
-            <div class="service-card-header">
-              <span class="service-index">04</span>
-              <h3 class="service-title">기본 케어</h3>
-            </div>
-            <p class="service-summary">
-              발톱·발바닥·위생 등 일상 건강을 위한 필수 관리입니다.
-            </p>
-            <ul class="service-detail-list">
-              <li>발톱 길이 정리 및 뾰족한 끝 다듬기</li>
+            <h3 class="service-title"><span class="service-index">04</span>기본 케어</h3>
+            <p class="service-summary">발톱·발바닥·위생 등 일상 건강을 위한 기본 관리입니다.</p>
+            <ul class="service-list">
+              <li>발톱 길이 정리</li>
               <li>미끄럼 방지를 위한 발바닥 패드 클리핑</li>
               <li>항문낭 확인 및 귀 주변 청결 유지</li>
             </ul>
-            <div class="service-card-footer">
-              <span class="status-chip">위생 &amp; 기본 관리</span>
-            </div>
           </article>
 
-          <!-- 05 맞춤 스타일 상담 -->
-          <article class="service-card service-card-consult">
-            <div class="service-card-header">
-              <span class="service-index">05</span>
-              <h3 class="service-title">맞춤 스타일 상담</h3>
-            </div>
-            <p class="service-summary">
-              털 상태·생활습관·원하는 스타일을 함께 확인합니다.
-            </p>
-            <ul class="service-detail-list">
-              <li>보호자가 가져온 사진과 실제 아이 모질 비교</li>
-              <li>가정 내 빗질 주기와 엉킴 방지 가이드 제안</li>
-              <li>아이의 나이와 스트레스 이력을 고려한 스타일 추천</li>
-            </ul>
-            <div class="service-card-footer">
-              <span class="status-chip">1:1 사전 상담</span>
-            </div>
-          </article>
-
-          <!-- [매장정보] 스파 메뉴 (가격 TODO: business-facts.md 가격 확정 시 status-chip 교체) -->
-          <!-- 06 버블 스파 -->
           <article class="service-card">
-            <div class="service-card-header">
-              <span class="service-index">06</span>
-              <h3 class="service-title">버블 스파</h3>
-            </div>
-            <p class="service-summary">
-              풍성한 거품으로 피모 사이사이를 부드럽게 씻어 냅니다.
-            </p>
-            <ul class="service-detail-list">
+            <h3 class="service-title"><span class="service-index">05</span>맞춤 스타일 상담</h3>
+            <p class="service-summary">털 상태·생활습관·원하는 스타일을 함께 확인합니다.</p>
+            <ul class="service-list">
+              <li>보호자가 가져온 사진과 실제 모질 비교</li>
+              <li>집에서의 빗질 주기와 엉킴 방지 가이드</li>
+              <li>나이와 스트레스 이력을 고려한 스타일 추천</li>
+            </ul>
+          </article>
+
+          <!-- [매장정보] 스파 메뉴 (가격 TODO: business-facts.md 가격 확정 시 price-note를 요금표로 교체) -->
+          <article class="service-card service-card-spa">
+            <h3 class="service-title"><span class="service-index">06</span>버블 스파</h3>
+            <p class="service-summary">풍성한 거품으로 피모 사이사이를 부드럽게 씻어 냅니다.</p>
+            <ul class="service-list">
               <li>피모 건강 개선</li>
               <li>기름때 및 냄새 제거</li>
             </ul>
-            <div class="service-card-footer">
-              <span class="status-chip">상담 후 안내</span>
-            </div>
           </article>
 
-          <!-- 07 탄산 스파 -->
-          <article class="service-card">
-            <div class="service-card-header">
-              <span class="service-index">07</span>
-              <h3 class="service-title">탄산 스파</h3>
-            </div>
-            <p class="service-summary">
-              탄산 성분으로 피부 컨디션을 산뜻하게 관리합니다.
-            </p>
-            <ul class="service-detail-list">
+          <article class="service-card service-card-spa">
+            <h3 class="service-title"><span class="service-index">07</span>탄산 스파</h3>
+            <p class="service-summary">탄산 성분으로 피부 컨디션을 산뜻하게 관리합니다.</p>
+            <ul class="service-list">
               <li>피부 각질 제거</li>
               <li>피부 면역 강화</li>
               <li>노폐물 제거</li>
             </ul>
-            <div class="service-card-footer">
-              <span class="status-chip">상담 후 안내</span>
-            </div>
           </article>
 
-          <!-- 08 머드팩 -->
-          <article class="service-card">
-            <div class="service-card-header">
-              <span class="service-index">08</span>
-              <h3 class="service-title">머드팩</h3>
-            </div>
-            <p class="service-summary">
-              머드팩으로 피모를 정화하고 촉촉하게 가꿉니다.
-            </p>
-            <ul class="service-detail-list">
+          <article class="service-card service-card-spa">
+            <h3 class="service-title"><span class="service-index">08</span>머드팩</h3>
+            <p class="service-summary">머드팩으로 피모를 정화하고 촉촉하게 가꿉니다.</p>
+            <ul class="service-list">
               <li>피모 정화</li>
               <li>건조함 완화</li>
               <li>모색 강화</li>
             </ul>
-            <div class="service-card-footer">
-              <span class="status-chip">상담 후 안내</span>
-            </div>
           </article>
         </div>
 
-        <div class="service-cta-banner">
-          <div class="service-cta-text">
-            <strong>어떤 서비스가 적합한지 고민되시나요?</strong>
-            <span>처음 방문하시는 보호자분들도 사전 상담을 통해 부담 없이 확인하실 수 있습니다.</span>
-          </div>
-          <a href="#reservation" class="btn btn-primary">상담 예약하기</a>
+        <!-- [매장정보] 가격: business-facts.md 가격 TODO. 요금표 확정 시 표로 교체 -->
+        <div class="price-note" id="price-guide">
+          <h3 class="price-note-title">가격 안내</h3>
+          <p>견종·체중·모량에 따라 상담 후 안내드립니다.</p>
+          <ul class="price-principles">
+            <li>견종 분류와 체중에 따른 기본 요금</li>
+            <li>털 엉킴, 위생 상태 등 추가 비용은 미리 안내</li>
+            <li>갑작스러운 현장 추가금 없이 상담 후 진행</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- 5. CUSTOM GROOMING -->
-    <section class="section section-custom" id="custom-grooming" aria-labelledby="custom-heading">
-      <div class="container">
-        <div class="custom-layout">
-          <div class="custom-intro">
-            <span class="section-category">CUSTOM GROOMING</span>
-            <h2 id="custom-heading" class="section-title">
-              «모든 아이에게 같은 미용은 하지 않습니다.»
-            </h2>
-            <p class="section-description">
-              견종이 같아도 성격, 모량, 관절 상태, 빗질 경험은 모두 다릅니다. PoPo는 5가지 핵심 요소를 종합하여 미용 방법을 설계합니다.
-            </p>
-            <p class="custom-sub-quote">
-              아이마다 다르니까, 미용도 달라야 합니다.
-            </p>
-          </div>
-
-          <div class="custom-factors-grid">
-            <div class="factor-card">
-              <div class="factor-icon-wrap">
-                <span class="factor-pill">01</span>
-              </div>
-              <h3 class="factor-name">성격</h3>
-              <p class="factor-desc">소리에 민감한지, 낯선 사람의 손길을 조심스러워하는지 아이의 기질을 존중합니다.</p>
-            </div>
-
-            <div class="factor-card">
-              <div class="factor-icon-wrap">
-                <span class="factor-pill">02</span>
-              </div>
-              <h3 class="factor-name">털 및 피모 상태</h3>
-              <p class="factor-desc">이중모 여부, 엉킴의 깊이, 각질이나 피부 붉어짐에 따라 도구와 빗질 압력을 바꿉니다.</p>
-            </div>
-
-            <div class="factor-card">
-              <div class="factor-icon-wrap">
-                <span class="factor-pill">03</span>
-              </div>
-              <h3 class="factor-name">생활환경</h3>
-              <p class="factor-desc">실외 산책 빈도, 옷 착용 습관, 가정 내 빗질 루틴에 맞춰 실용적인 길이를 제안합니다.</p>
-            </div>
-
-            <div class="factor-card">
-              <div class="factor-icon-wrap">
-                <span class="factor-pill">04</span>
-              </div>
-              <h3 class="factor-name">원하는 스타일</h3>
-              <p class="factor-desc">보호자의 취향을 경청하고, 아이의 체형 단점을 보완하는 맞춤형 라인을 잡습니다.</p>
-            </div>
-
-            <div class="factor-card">
-              <div class="factor-icon-wrap">
-                <span class="factor-pill">05</span>
-              </div>
-              <h3 class="factor-name">이전 미용 기록</h3>
-              <p class="factor-desc">지난번 미용 후 긁었던 부위나 특히 긴장했던 과정을 확인해 동일한 불편을 방지합니다.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. POPO CARE -->
-    <section class="section section-care" id="popo-care" aria-labelledby="care-heading">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-category">PoPo CARE</span>
-          <h2 id="care-heading" class="section-title">
-            «예쁜 미용도 중요하지만,<br />
-            <span class="text-olive">아이가 편안하게 돌아가는 것이 먼저입니다.»</span>
-          </h2>
-          <p class="section-description">
-            PoPo가 타협하지 않는 5가지 안심 케어 스탠다드입니다.
-          </p>
-        </div>
-
-        <div class="care-standards-grid">
-          <div class="standard-card">
-            <span class="standard-num">01</span>
-            <h3 class="standard-title">안전 확인</h3>
-            <p class="standard-desc">미용 전 아이의 눈, 코, 귀, 관절, 피부 상태를 먼저 살펴보고 미용 가능 여부를 진중하게 확인합니다.</p>
-          </div>
-
-          <div class="standard-card">
-            <span class="standard-num">02</span>
-            <h3 class="standard-title">편안한 진행</h3>
-            <p class="standard-desc">아이가 거부감을 보일 때 억지로 힘으로 제압하지 않고, 반응을 살피며 무리하지 않도록 진행합니다.</p>
-          </div>
-
-          <div class="standard-card">
-            <span class="standard-num">03</span>
-            <h3 class="standard-title">위생 관리</h3>
-            <p class="standard-desc">미용 도구의 살균과 테이블, 욕조 등 매장 공간을 청결하게 유지하여 위생 걱정을 덜어드립니다.</p>
-          </div>
-
-          <div class="standard-card">
-            <span class="standard-num">04</span>
-            <h3 class="standard-title">보호자 소통</h3>
-            <p class="standard-desc">미용 중 발견된 피부 상태나 행동 반응 등 특이사항이 있을 경우 보호자에게 즉시 솔직히 안내합니다.</p>
-          </div>
-
-          <div class="standard-card">
-            <span class="standard-num">05</span>
-            <h3 class="standard-title">기록 관리</h3>
-            <p class="standard-desc">오늘의 미용 내용과 다음 방문 시 주의할 점을 체계적으로 기록해 아이 맞춤 관리를 이어갑니다.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. GROOMING STORY (실제 고객 사례 → 인스타그램 안내) -->
-    <section class="section section-gallery" id="grooming-story" aria-labelledby="story-gallery-heading">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-category">GROOMING STORY</span>
-          <h2 id="story-gallery-heading" class="section-title">실제 반려견 미용 케이스 스토리</h2>
-          <p class="section-description">
-            보호자님의 동의를 받은 실제 미용 사례만 소개합니다.
-          </p>
-        </div>
-
-        <div class="case-structure-explainer">
-          <div class="explainer-label">케이스 기록 구조</div>
-          <div class="explainer-steps">
-            <span>BEFORE (상태)</span>
-            <span class="arr">↓</span>
-            <span>CONSULTATION (상담)</span>
-            <span class="arr">↓</span>
-            <span>GROOMING (맞춤진행)</span>
-            <span class="arr">↓</span>
-            <span>AFTER (결과)</span>
-            <span class="arr">↓</span>
-            <span>CARE NOTE (관리참고)</span>
-          </div>
-        </div>
-
-        <div class="transparent-placeholder-card">
-          <div class="placeholder-icon">
-            <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#71806A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="6" y="8" width="36" height="32" rx="4" />
-              <circle cx="18" cy="20" r="4" />
-              <path d="M42 32L32 22L12 40" />
-            </svg>
-          </div>
-          <h3 class="placeholder-title">미용 사례는 인스타그램에서 만나 보세요</h3>
-          <p class="placeholder-desc">
-            PoPo애견미용실에서 미용한 아이들의 모습을 인스타그램에 올리고 있습니다.
-          </p>
-          <a href="https://www.instagram.com/popo_grooming" target="_blank" rel="noopener" class="btn btn-secondary">인스타그램 @popo_grooming</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. REVIEW — 네이버 리뷰 링크 자리 (현재 숨김)
-         네이버 플레이스 URL이 docs/business-facts.md에 TODO라 노출하지 않는다.
-         URL이 확정되면 아래 주석을 풀고 href를 채운다.
-    <section class="section section-review" id="popo-review" aria-labelledby="review-heading">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-category">REVIEW</span>
-          <h2 id="review-heading" class="section-title">보호자님들의 이용 후기</h2>
-        </div>
-        <div class="review-link-row">
-          <a href="TODO_NAVER_PLACE_URL" target="_blank" rel="noopener" class="btn btn-primary btn-large">네이버 리뷰 보기</a>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <!-- 9. POPO CARE RECORD -->
-    <section class="section section-record" id="care-record" aria-labelledby="record-heading">
-      <div class="container">
-        <div class="record-layout">
-          <div class="record-intro">
-            <span class="section-category">PoPo CARE RECORD</span>
-            <h2 id="record-heading" class="section-title">
-              «기억하는 미용, 이어지는 관리.»
-            </h2>
-            <p class="section-description">
-              아이의 미용은 일회성 이벤트가 아닙니다. 지난번 어떤 과정을 편안해했고 어떤 부분에서 긴장했는지를 차곡차곡 기록하여, 방문이 거듭될수록 아이에게 가장 편안한 시간을 만듭니다.
-            </p>
-          </div>
-
-          <div class="record-spec-sheet">
-            <div class="spec-sheet-header">
-              <span class="sheet-title">PoPo 미용 케어 기록 항목</span>
-              <span class="sheet-badge">관리 기준</span>
-            </div>
-
-            <div class="spec-sheet-body">
-              <div class="spec-row">
-                <span class="spec-label">기본 정보</span>
-                <span class="spec-value">견종, 체중, 생년월일/나이, 이전 방문일</span>
-              </div>
-              <div class="spec-row">
-                <span class="spec-label">미용 정보</span>
-                <span class="spec-value">스타일, 클리핑/가위컷 길이, 보호자 요청사항</span>
-              </div>
-              <div class="spec-row">
-                <span class="spec-label">아이의 특성</span>
-                <span class="spec-value">미용 부위별 반응, 소리/도구 민감도, 관절 등 주의사항</span>
-              </div>
-              <div class="spec-row">
-                <span class="spec-label">보호자 피드백</span>
-                <span class="spec-value">귀가 후 컨디션 확인, 다음번 수정 요청 포인트</span>
-              </div>
-              <div class="spec-row">
-                <span class="spec-label">다음 방문</span>
-                <span class="spec-value">적정 권장 주기, 다음 미용 시 유의할 점</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. PRICE GUIDE -->
-    <section class="section section-price" id="price-guide" aria-labelledby="price-heading">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-category">PRICE GUIDE</span>
-          <h2 id="price-heading" class="section-title">투명하고 정직한 가격 안내</h2>
-          <p class="section-description price-main-quote">
-            «예약 전 예상 비용을 확인하실 수 있도록 투명하게 안내하겠습니다.»
-          </p>
-        </div>
-
-        <div class="price-status-card">
-          <!-- [매장정보] 가격: business-facts.md 가격 TODO. 요금표 확정 시 이 문장을 표로 교체 -->
-          <p class="price-status-text">
-            견종·체중·모량에 따라 상담 후 안내드립니다.
-          </p>
-
-          <div class="price-principles-grid">
-            <div class="principle-box">
-              <h4>01 기본 가격 기준</h4>
-              <p>견종 분류 및 체중에 따른 객관적인 기본 요금</p>
-            </div>
-            <div class="principle-box">
-              <h4>02 추가 비용 기준</h4>
-              <p>털 엉킴, 위생 상태, 입질 등 상황별 명확한 사전 고지</p>
-            </div>
-            <div class="principle-box">
-              <h4>03 사전 상담 필수</h4>
-              <p>갑작스러운 현장 추가금 없이 상담 후 진행</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 11. FIRST VISIT -->
-    <section class="section section-first-visit" id="first-visit" aria-labelledby="first-visit-heading">
+    <!-- 4. FIRST VISIT -->
+    <section class="section section-alt" id="first-visit" aria-labelledby="first-visit-heading">
       <div class="container">
         <div class="section-header">
           <span class="section-category">FIRST VISIT</span>
-          <h2 id="first-visit-heading" class="section-title">
-            «첫 방문이니까 더 꼼꼼하게 듣겠습니다.»
-          </h2>
+          <h2 id="first-visit-heading" class="section-title">«첫 방문이니까 더 꼼꼼하게 듣겠습니다.»</h2>
           <p class="section-description">
-            처음 낯선 미용실에 발을 들이는 아이와 보호자의 걱정을 알기에, 첫 방문은 더욱 여유롭고 꼼꼼한 6단계 순서로 안내합니다.
+            낯선 미용실이 처음인 아이와 보호자를 위해, 첫 방문은 여유 있게 6단계로 진행합니다.
           </p>
         </div>
 
-        <div class="first-visit-timeline">
-          <div class="timeline-step">
-            <div class="timeline-num">01</div>
-            <div class="timeline-content">
+        <ol class="timeline">
+          <li class="timeline-step">
+            <span class="timeline-num">01</span>
+            <div>
               <h3>예약</h3>
               <p>전화나 카카오톡으로 아이의 견종, 미용 경험, 희망 일시를 알려 주시면 일정을 조율합니다.</p>
             </div>
-          </div>
-
-          <div class="timeline-step">
-            <div class="timeline-num">02</div>
-            <div class="timeline-content">
+          </li>
+          <li class="timeline-step">
+            <span class="timeline-num">02</span>
+            <div>
               <h3>사전 상담</h3>
               <p>아이가 낯선 장소에 적응하는 동안 보호자와 원하는 스타일과 주의사항을 나눕니다.</p>
             </div>
-          </div>
-
-          <div class="timeline-step">
-            <div class="timeline-num">03</div>
-            <div class="timeline-content">
-              <h3>방문 &amp; 탐색</h3>
-              <p>테이블에 바로 올리지 않고 냄새를 맡으며 긴장을 완화하는 시간을 갖습니다.</p>
+          </li>
+          <li class="timeline-step">
+            <span class="timeline-num">03</span>
+            <div>
+              <h3>적응 시간</h3>
+              <p>테이블에 바로 올리지 않고 냄새를 맡으며 긴장을 풀 시간을 갖습니다.</p>
             </div>
-          </div>
-
-          <div class="timeline-step">
-            <div class="timeline-num">04</div>
-            <div class="timeline-content">
+          </li>
+          <li class="timeline-step">
+            <span class="timeline-num">04</span>
+            <div>
               <h3>맞춤 미용</h3>
               <p>아이의 호흡에 맞춰 무리하지 않고 세심하게 미용을 진행합니다.</p>
             </div>
-          </div>
-
-          <div class="timeline-step">
-            <div class="timeline-num">05</div>
-            <div class="timeline-content">
+          </li>
+          <li class="timeline-step">
+            <span class="timeline-num">05</span>
+            <div>
               <h3>결과 확인</h3>
-              <p>보호자 픽업 시 완성된 라인과 미용 중 특이사항을 함께 확인합니다.</p>
+              <p>픽업 시 완성된 라인과 미용 중 특이사항을 함께 확인합니다.</p>
             </div>
-          </div>
-
-          <div class="timeline-step">
-            <div class="timeline-num">06</div>
-            <div class="timeline-content">
+          </li>
+          <li class="timeline-step">
+            <span class="timeline-num">06</span>
+            <div>
               <h3>다음 관리</h3>
-              <p>가정에서의 빗질 팁과 아이 맞춤형 권장 재방문 시점을 제안해 드립니다.</p>
+              <p>집에서의 빗질 팁과 아이에게 맞는 재방문 시점을 알려 드립니다.</p>
             </div>
-          </div>
-        </div>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- 12. REVISIT / POPO CARE JOURNEY -->
-    <section class="section section-journey" id="journey" aria-labelledby="journey-heading">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-category">REVISIT / PoPo CARE JOURNEY</span>
-          <h2 id="journey-heading" class="section-title">방문할수록 더 깊어지는 신뢰</h2>
-          <p class="section-description journey-quote">
-            «한 번의 미용으로 끝나는 것이 아니라, 방문할수록 우리 아이를 더 잘 알아가는 미용.»
-          </p>
-        </div>
-
-        <div class="journey-cards-grid">
-          <div class="journey-card">
-            <div class="journey-badge">STEP 1</div>
-            <h3 class="journey-stage">FIRST VISIT</h3>
-            <p class="journey-keyword">아이를 알아가는 단계</p>
-            <p class="journey-desc">아이의 성향, 두려워하는 포인트, 털의 특성을 면밀히 파악하고 긴장을 푸는 데 집중합니다.</p>
-          </div>
-
-          <div class="journey-card">
-            <div class="journey-badge">STEP 2</div>
-            <h3 class="journey-stage">SECOND VISIT</h3>
-            <p class="journey-keyword">이전 기록을 이어가는 단계</p>
-            <p class="journey-desc">첫 방문 시 기록했던 반응을 바탕으로 미용 과정을 보완하고 익숙함을 형성합니다.</p>
-          </div>
-
-          <div class="journey-card">
-            <div class="journey-badge">STEP 3</div>
-            <h3 class="journey-stage">REPEATED VISIT</h3>
-            <p class="journey-keyword">특성과 선호도를 축적하는 단계</p>
-            <p class="journey-desc">미용실이 편안한 공간으로 인식되며, 아이에게 가장 잘 어울리는 시그니처 스타일이 자리 잡습니다.</p>
-          </div>
-
-          <div class="journey-card journey-card-accent">
-            <div class="journey-badge">STEP 4</div>
-            <h3 class="journey-stage">LONG-TERM</h3>
-            <p class="journey-keyword">변화와 스타일을 지속 관리하는 단계</p>
-            <p class="journey-desc">계절 변화, 나이 듦에 따른 관절과 피모 상태의 변화까지 함께 살피는 든든한 파트너가 됩니다.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 13. FAQ -->
-    <section class="section section-faq" id="faq" aria-labelledby="faq-heading">
-      <div class="container">
+    <!-- 5. FAQ -->
+    <section class="section" id="faq" aria-labelledby="faq-heading">
+      <div class="container container-narrow">
         <div class="section-header">
           <span class="section-category">FAQ</span>
           <h2 id="faq-heading" class="section-title">자주 묻는 질문</h2>
-          <p class="section-description">
-            보호자분들께서 가장 궁금해하시는 질문들을 정리했습니다.
-          </p>
         </div>
 
-        <div class="faq-accordion" id="faqAccordion">
-          <!-- FAQ 1 -->
+        <div class="faq-accordion">
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAns1" id="faqBtn1">
               <span>Q. 예약은 어떻게 하나요?</span>
-              <span class="faq-icon">+</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-answer" id="faqAns1" role="region" aria-labelledby="faqBtn1">
               <!-- [매장정보] 예약 방법 -->
@@ -898,152 +386,142 @@
             </div>
           </div>
 
-          <!-- FAQ 2 -->
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAns2" id="faqBtn2">
               <span>Q. 미용 시간은 얼마나 걸리나요?</span>
-              <span class="faq-icon">+</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-answer" id="faqAns2" role="region" aria-labelledby="faqBtn2">
               <p>견종, 체중, 모량, 요청하시는 스타일(부분/전체/가위컷), 그리고 아이의 당일 컨디션에 따라 다릅니다. 아이의 안정을 위해 무리하게 서두르지 않으므로 상담 시 예상 소요시간을 안내해 드립니다.</p>
             </div>
           </div>
 
-          <!-- FAQ 3 -->
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAns3" id="faqBtn3">
               <span>Q. 처음 방문해도 되나요?</span>
-              <span class="faq-icon">+</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-answer" id="faqAns3" role="region" aria-labelledby="faqBtn3">
               <p>네, 환영합니다. 첫 방문 고객님을 위해 사전 상담 시간을 넉넉히 배정하여 아이의 성향과 이전 미용 경험을 충분히 듣고 진행합니다.</p>
             </div>
           </div>
 
-          <!-- FAQ 4 -->
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAns4" id="faqBtn4">
               <span>Q. 미용 전 준비할 것이 있나요?</span>
-              <span class="faq-icon">+</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-answer" id="faqAns4" role="region" aria-labelledby="faqBtn4">
               <p>미용 직전 과도한 식사는 피해 주시고, 가벼운 산책으로 배변을 마치고 오시면 아이가 한결 편안해합니다. 특별히 주의해야 할 건강 상태나 최근 접종 이력이 있다면 미리 알려주세요.</p>
             </div>
           </div>
 
-          <!-- FAQ 5 -->
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAns5" id="faqBtn5">
               <span>Q. 털이 많이 엉킨 경우 어떻게 하나요?</span>
-              <span class="faq-icon">+</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-answer" id="faqAns5" role="region" aria-labelledby="faqBtn5">
               <p>엉킴 상태를 먼저 확인한 뒤, 풀 수 있는 범위와 아이 피부에 무리가 가지 않는 방향을 상담합니다. 무리한 빗질로 통증을 주지 않는 것을 원칙으로 합니다.</p>
             </div>
           </div>
 
-          <!-- FAQ 6 -->
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAns6" id="faqBtn6">
               <span>Q. 미용을 무서워하는 강아지도 가능한가요?</span>
-              <span class="faq-icon">+</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-answer" id="faqAns6" role="region" aria-labelledby="faqBtn6">
               <p>미용 트라우마나 두려움이 있는 아이는 강압적으로 진행하지 않고, 중간 휴식과 긍정적인 보상을 병행하며 아이의 심리적 안정 범위를 우선합니다.</p>
             </div>
           </div>
 
-          <!-- FAQ 7 -->
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAns7" id="faqBtn7">
               <span>Q. 가격은 어떻게 결정되나요?</span>
-              <span class="faq-icon">+</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-answer" id="faqAns7" role="region" aria-labelledby="faqBtn7">
               <p>견종, 체중, 기본 케어 항목, 스타일 유형(클리핑, 스포팅, 가위컷), 엉킴 여부 등에 따라 결정됩니다. 미용 시작 전 상세 내역을 투명하게 안내해 드립니다.</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- 14. LOCATION -->
-    <section class="section section-location" id="location" aria-labelledby="location-heading">
-      <div class="container">
+    <!-- REVIEW — 네이버 리뷰 링크 자리 (현재 숨김)
+         네이버 플레이스 URL이 docs/business-facts.md에 TODO라 노출하지 않는다.
+         URL이 확정되면 아래 주석을 풀고 href를 채운다.
+    <section class="section section-alt" id="review" aria-labelledby="review-heading">
+      <div class="container text-center">
+        <span class="section-category">REVIEW</span>
+        <h2 id="review-heading" class="section-title">보호자님들의 이용 후기</h2>
+        <a href="TODO_NAVER_PLACE_URL" target="_blank" rel="noopener" class="btn btn-primary btn-large">네이버 리뷰 보기</a>
+      </div>
+    </section>
+    -->
+
+    <!-- 6. LOCATION -->
+    <section class="section section-alt" id="location" aria-labelledby="location-heading">
+      <div class="container container-narrow">
         <div class="section-header">
           <span class="section-category">LOCATION</span>
           <h2 id="location-heading" class="section-title">찾아오시는 길</h2>
-          <p class="section-description">
-            PoPo애견미용실은 안양시 동안구 관양로 145, 1층 101호에 있습니다.
-          </p>
         </div>
 
         <!-- [매장정보] 위치·영업 정보 — docs/business-facts.md 기준 -->
-        <!-- 숨김: 지도 안내, 길찾기(네이버 플레이스 URL TODO), 대중교통(미확인). 값이 확정되면 location-row로 추가하고, 지도 카드를 넣을 때 location-grid-single을 해제한다. -->
-        <div class="location-grid location-grid-single">
-          <div class="location-info-card">
-            <div class="location-row">
-              <span class="loc-label">주소</span>
-              <div class="loc-val">
-                <strong>경기 안양시 동안구 관양로 145 1층 101호</strong>
-              </div>
-            </div>
-
-            <div class="location-row">
-              <span class="loc-label">영업시간</span>
-              <div class="loc-val">
-                <strong>월~토 09:30 ~ 20:00</strong>
-                <span class="loc-sub">매주 일요일 휴무 · 100% 예약제</span>
-              </div>
-            </div>
-
-            <div class="location-row">
-              <span class="loc-label">연락처</span>
-              <div class="loc-val">
-                <a href="tel:01055897031" class="loc-link"><strong>010-5589-7031</strong></a>
-                <a href="https://pf.kakao.com/_UJDxiX" target="_blank" rel="noopener" class="loc-sub loc-link">카카오톡 채널로 문의하기</a>
-              </div>
-            </div>
-
-            <div class="location-row">
-              <span class="loc-label">주차 안내</span>
-              <div class="loc-val">
-                <strong>주차 가능</strong>
-              </div>
-            </div>
-
-            <div class="location-row">
-              <span class="loc-label">반려동물</span>
-              <div class="loc-val">
-                <strong>동반 출입 가능</strong>
-              </div>
-            </div>
+        <!-- 숨김: 지도 안내, 길찾기(네이버 플레이스 URL TODO), 대중교통(미확인). 값이 확정되면 location-row로 추가한다. -->
+        <dl class="location-card">
+          <div class="location-row">
+            <dt>주소</dt>
+            <dd><strong>경기 안양시 동안구 관양로 145 1층 101호</strong></dd>
           </div>
-        </div>
+          <div class="location-row">
+            <dt>영업시간</dt>
+            <dd>
+              <strong>월~토 09:30 ~ 20:00</strong>
+              <span class="loc-sub">매주 일요일 휴무 · 100% 예약제</span>
+            </dd>
+          </div>
+          <div class="location-row">
+            <dt>연락처</dt>
+            <dd>
+              <a href="tel:01055897031" class="loc-link"><strong>010-5589-7031</strong></a>
+              <a href="https://pf.kakao.com/_UJDxiX" target="_blank" rel="noopener" class="loc-link loc-sub">카카오톡 채널로 문의하기</a>
+            </dd>
+          </div>
+          <div class="location-row">
+            <dt>주차</dt>
+            <dd><strong>주차 가능</strong></dd>
+          </div>
+          <div class="location-row">
+            <dt>반려동물</dt>
+            <dd><strong>동반 출입 가능</strong></dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <!-- 15. RESERVATION (100% 예약제 · 전화/카카오톡/인스타그램 안내) -->
-    <section class="section section-reservation" id="reservation" aria-labelledby="reservation-heading">
+    <!-- 7. RESERVATION & CONTACT (기존 예약 + 미용 사례 통합) -->
+    <section class="section" id="reservation" aria-labelledby="reservation-heading">
       <div class="container">
-        <div class="section-header text-center">
+        <!-- [매장정보] 예약·연락 채널 -->
+        <div class="contact-card">
           <span class="section-category">RESERVATION</span>
           <h2 id="reservation-heading" class="section-title">예약 안내</h2>
           <p class="section-description">
             PoPo애견미용실은 <strong>100% 예약제</strong>로 운영합니다.<br />
             전화나 카카오톡으로 편하게 문의해 주세요.
           </p>
-        </div>
-
-        <!-- [매장정보] 예약·연락 채널 -->
-        <div class="reservation-card">
-          <p class="reservation-hours">월~토 09:30 ~ 20:00 · 매주 일요일 휴무</p>
+          <p class="contact-hours">월~토 09:30 ~ 20:00 · 매주 일요일 휴무</p>
           <div class="contact-actions">
             <a href="tel:01055897031" class="btn btn-primary btn-large">전화 예약 010-5589-7031</a>
-            <a href="https://pf.kakao.com/_UJDxiX" target="_blank" rel="noopener" class="btn btn-secondary btn-large">카카오톡 채널 문의</a>
-            <a href="https://www.instagram.com/popo_grooming" target="_blank" rel="noopener" class="btn btn-secondary btn-large">인스타그램 @popo_grooming</a>
+            <a href="https://pf.kakao.com/_UJDxiX" target="_blank" rel="noopener" class="btn btn-kakao btn-large">카카오톡 채널 문의</a>
           </div>
+          <p class="contact-insta">
+            미용한 아이들의 모습은 인스타그램에서 볼 수 있어요.
+            <a href="https://www.instagram.com/popo_grooming" target="_blank" rel="noopener">@popo_grooming</a>
+          </p>
         </div>
       </div>
     </section>
@@ -1053,31 +531,22 @@
   <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-brand">
-        <div class="footer-logo">
-          <svg viewBox="0 0 32 32" width="24" height="24" fill="none" aria-hidden="true">
-            <rect width="32" height="32" rx="16" fill="#F8F4EC" />
-            <ellipse cx="16" cy="17" rx="5.5" ry="4.5" fill="#26352C" />
-            <path d="M10 12C9 14 9.5 17 11 18C12.5 19 13.5 17.5 13 16Z" fill="#26352C" />
-            <path d="M22 12C23 14 22.5 17 21 18C19.5 19 18.5 17.5 19 16Z" fill="#26352C" />
-            <path d="M11 21C12.5 23 14 23.8 16 23.8C18 23.8 19.5 23 21 21" stroke="#D88A63" stroke-width="1.5" stroke-linecap="round" />
-          </svg>
-          <strong>포포(PoPo)애견미용실</strong>
-        </div>
+        <!-- TODO(로고): 로고 원본이 들어오면 텍스트 로고 대신 이미지로 교체 -->
+        <p class="footer-logo">포포(PoPo)애견미용실</p>
         <p class="footer-slogan">«예뻐지는 시간보다, 안심하는 시간을.»</p>
-        <p class="footer-purpose">강아지와 보호자를 함께 생각하는 미용실</p>
       </div>
 
       <div class="footer-info">
-        <p class="footer-info-item"><strong>상호명:</strong> PoPo애견미용실 (포포) · 안양 관양동 애견미용</p>
+        <p><strong>상호명</strong> PoPo애견미용실 (포포) · 안양 관양동 애견미용</p>
         <!-- [매장정보] 주소 -->
-        <p class="footer-info-item"><strong>주소:</strong> 경기 안양시 동안구 관양로 145 1층 101호</p>
-        <p class="footer-info-item"><strong>전화:</strong> <a href="tel:01055897031">010-5589-7031</a> · 월~토 09:30 ~ 20:00 (일요일 휴무)</p>
+        <p><strong>주소</strong> 경기 안양시 동안구 관양로 145 1층 101호</p>
+        <p><strong>전화</strong> <a href="tel:01055897031">010-5589-7031</a> · 월~토 09:30 ~ 20:00 (일요일 휴무)</p>
         <!-- [매장정보] 사업자 정보: 대표자명·사업자등록번호·동물미용업 등록번호 TODO (business-facts.md 확정 시 추가) -->
       </div>
 
       <div class="footer-bottom">
-        <p class="copyright">&copy; 2026 PoPo애견미용실. All rights reserved.</p>
-        <a href="#top" class="back-to-top">맨 위로 이동 ↑</a>
+        <p>&copy; 2026 PoPo애견미용실. All rights reserved.</p>
+        <a href="#top" class="back-to-top">맨 위로 ↑</a>
       </div>
     </div>
   </footer>
@@ -1085,7 +554,7 @@
   <!-- [매장정보] 모바일 고정 하단 바 (전화 / 카카오톡 문의) -->
   <nav class="mobile-sticky-bar" aria-label="전화·카카오톡 문의">
     <a href="tel:01055897031" class="btn btn-sticky btn-sticky-call">전화 예약</a>
-    <a href="https://pf.kakao.com/_UJDxiX" target="_blank" rel="noopener" class="btn btn-sticky btn-sticky-kakao">카카오톡 문의</a>
+    <a href="https://pf.kakao.com/_UJDxiX" target="_blank" rel="noopener" class="btn btn-sticky btn-kakao">카카오톡 문의</a>
   </nav>
 
   <script type="module" src="/src/main.js"></script>
