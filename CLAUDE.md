@@ -9,22 +9,23 @@
 - 그 파일에 `TODO` 또는 `미확인`으로 표시된 값은 **사이트에 쓰지 않는다.** 해당 UI는 숨기거나 "매장 문의"로 대체하고, 작업 끝에 사용자에게 무엇이 비었는지 보고한다.
 - 가격, 후기, 비포/애프터 사진, 자격증, 경력 숫자를 **지어내지 않는다.**
 
-## 2. 코드 환경 (2026-10-17 확인)
-- 프레임워크/빌드: **프레임워크 없음. 정적 HTML + 바닐라 JS(ES 모듈) + Vite 7** (`vite.config.js`는 `index.html`만 빌드한다. `admin.html`은 Manus 의존이라 빌드에서 뺐다. 빌드 시 `base`는 `/popo_petsalon/` — GitHub Pages 하위 경로용, 자체 도메인 연결 시 `/`로 변경). SPA 아님 — 공개 페이지의 모든 콘텐츠·메타가 `index.html` 정적 마크업에 들어 있다.
-- 페이지 구조: 공개 페이지 전체가 `index.html` 한 파일(섹션 `<section id=…>` 15개). 인터랙션은 `src/main.js`(모바일 메뉴, FAQ 아코디언, 모의 예약 폼, localStorage 후기). 관리자 화면은 `admin.html` + `src/admin.js`.
-- 스타일: **순수 CSS 한 파일** `src/style.css` (`:root` CSS 변수 사용, Tailwind 없음). 단, `index.html` 인라인 SVG 로고에 `#26352C` 등 색상이 하드코딩돼 있음.
-- 서버/API 유무: `server/`(Express + MySQL + Stripe + Manus OAuth/스토리지)와 `scripts/check-api.mjs`가 **있지만 미사용 상태**. `package.json`에 express 등 의존성이 없고, 공개 페이지(`src/main.js`)는 API를 호출하지 않으며, Dockerfile은 `vite preview`로 정적 결과물만 서빙한다. → 서버 코드는 손대지 않는다(정리 여부는 사용자에게 확인).
+## 2. 코드 환경 (2026-10-17 갱신)
+- 프레임워크/빌드: **프레임워크 없음. 정적 HTML + 바닐라 JS(ES 모듈) + Vite 7.** SPA 아님 — 모든 콘텐츠·메타가 `index.html` 정적 마크업에 들어 있다. 빌드 시 `base`는 `/popo_petsalon/`(GitHub Pages 하위 경로용, 자체 도메인 연결 시 `vite.config.js`에서 `/`로 변경).
+- 페이지 구조: 공개 페이지 전체가 `index.html` 한 파일. 섹션 7개(히어로 → 소개 → 서비스·가격 → 첫 방문 → FAQ → 오시는 길 → 예약 안내) + 주석으로 숨긴 네이버 리뷰 자리. 인터랙션은 `src/main.js`(모바일 메뉴 토글, FAQ 아코디언)뿐.
+- 스타일: **순수 CSS 한 파일** `src/style.css`. 색상은 `:root`의 `--popo-*` 토큰에서만 정의하고 규칙 안에는 hex를 쓰지 않는다.
+- 서버/API: **없음.** Manus가 만든 서버·관리자 화면·Docker 설정은 2026-10-17 삭제했다(git 기록에 남아 있음).
+- 배포: `main` push → `.github/workflows/deploy.yml`(GitHub Actions)이 `pnpm build` 후 `dist/`를 GitHub Pages에 올린다. 저장소 Settings → Pages → Source는 **GitHub Actions**여야 한다.
 - 패키지 매니저: **pnpm** (`pnpm-lock.yaml`, `packageManager: pnpm@11.25.0`). 로컬에 pnpm이 없으면 `corepack pnpm …`으로 실행.
 - 명령어: 개발 `pnpm dev`(포트 3000) / 빌드 `pnpm build` / 미리보기 `pnpm preview` / 린트 **없음** / 타입체크 **없음**(TS 미사용)
-- 메타 태그 위치: `index.html` `<head>` (title, description, theme-color, OG/Twitter, favicon, JSON-LD). 정적 HTML이므로 초기 HTML에 그대로 들어감. canonical·og:url 없음. `public/manus-routes.json`에 별도 title(`POPO | 안양 관양동 애견미용`)이 있음 — Manus 플랫폼 설정이므로 수정 전 확인.
-- 매장 정보 위치: 데이터 파일 분리 없음. 주소·문구가 `index.html` 여러 곳(히어로, 위치, FAQ, 푸터, JSON-LD)과 `server/index.js`의 `address` 상수에 하드코딩.
+- 메타 태그 위치: `index.html` `<head>` (title, description, canonical, OG/Twitter, theme-color, JSON-LD). 공유 이미지는 `public/og-image.jpg`(1200×630), sitemap은 `public/sitemap.xml`.
+- 매장 정보 위치: 데이터 파일 분리 없음. `index.html` 안에 `<!-- [매장정보] -->` 주석으로 표시돼 있으니 `[매장정보]`로 검색해서 모두 고친다.
 
 ## 3. 작업 규칙
 - 변경 전에 해당 섹션 코드를 먼저 읽고, 기존 컴포넌트·스타일 패턴을 따른다. 새 라이브러리는 사용자 동의 없이 추가하지 않는다.
 - 변경 후 빌드(가능하면 타입체크·린트)를 실행해 통과를 확인한다. 실패하면 고치고 다시 실행한다.
 - 한 번에 한 단계씩: 사실 정보 교체 → 문구 정리 → 브랜드 디자인 → SEO 순서. 단계마다 무엇을 바꿨는지 짧게 보고한다.
 - `.env` 계열 파일은 읽거나 출력하지 않는다.
-- Manus 플랫폼 전용 설정(배포·빌드 설정 파일)은 수정 전에 사용자에게 확인한다.
+- 배포 설정(`.github/workflows/deploy.yml`, `vite.config.js`의 `base`)은 수정 전에 사용자에게 확인한다.
 
 ## 4. 브랜드 표기
 - 공식 상호: **PoPo애견미용실** (카카오 채널 표기 기준)
