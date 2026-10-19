@@ -846,6 +846,31 @@ h1, h2, h3 {
   text-underline-offset: 3px;
 }
 
+.location-map {
+  margin-top: 24px;
+}
+
+.location-map iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  background-color: var(--color-bg-alt);
+}
+
+@media (min-width: 600px) {
+  .location-map iframe {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.location-map .loc-link {
+  margin-top: 12px;
+  text-align: center;
+}
+
 /* ---------- 7. Reservation & Contact ---------- */
 .contact-card {
   max-width: var(--container-narrow);

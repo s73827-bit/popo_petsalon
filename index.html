@@ -486,7 +486,7 @@
         </div>
 
         <!-- [매장정보] 위치·영업 정보 — docs/business-facts.md 기준 -->
-        <!-- 숨김: 지도 안내, 길찾기(네이버 플레이스 URL TODO), 대중교통(미확인). 값이 확정되면 location-row로 추가한다. -->
+        <!-- 숨김: 길찾기(네이버 플레이스 URL TODO), 대중교통(미확인). 값이 확정되면 location-row로 추가한다. -->
         <dl class="location-card">
           <div class="location-row">
             <dt>주소</dt>
@@ -515,6 +515,11 @@
             <dd><strong>동반 출입 가능</strong></dd>
           </div>
         </dl>
+
+        <!-- [매장정보] 구글 지도 — 주소는 docs/business-facts.md 기준. src/main.js가 VITE_GOOGLE_MAPS_EMBED_KEY로 지도를 넣고, 키가 없으면 숨김 상태로 둔다. -->
+        <div class="location-map" id="locationMap" data-query="경기 안양시 동안구 관양로 145" hidden>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B2%BD%EA%B8%B0%20%EC%95%88%EC%96%91%EC%8B%9C%20%EB%8F%99%EC%95%88%EA%B5%AC%20%EA%B4%80%EC%96%91%EB%A1%9C%20145" target="_blank" rel="noopener" class="loc-link">구글 지도에서 크게 보기</a>
+        </div>
       </div>
     </section>
 

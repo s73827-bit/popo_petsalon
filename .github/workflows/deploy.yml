@@ -31,7 +31,11 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
+      # 구글 지도 키는 저장소 Settings → Secrets and variables → Actions의 GOOGLE_MAPS_EMBED_KEY.
+      # 없으면 지도 영역만 숨긴 채로 빌드된다.
       - run: pnpm build
+        env:
+          VITE_GOOGLE_MAPS_EMBED_KEY: ${{ secrets.GOOGLE_MAPS_EMBED_KEY }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

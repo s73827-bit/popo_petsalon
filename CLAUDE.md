@@ -11,7 +11,8 @@
 
 ## 2. 코드 환경 (2026-10-17 갱신)
 - 프레임워크/빌드: **프레임워크 없음. 정적 HTML + 바닐라 JS(ES 모듈) + Vite 7.** SPA 아님 — 모든 콘텐츠·메타가 `index.html` 정적 마크업에 들어 있다. 빌드 시 `base`는 `/popo_petsalon/`(GitHub Pages 하위 경로용, 자체 도메인 연결 시 `vite.config.js`에서 `/`로 변경).
-- 페이지 구조: 공개 페이지 전체가 `index.html` 한 파일. 섹션 7개(히어로 → 소개 → 서비스·가격 → 첫 방문 → FAQ → 오시는 길 → 예약 안내) + 주석으로 숨긴 네이버 리뷰 자리. 인터랙션은 `src/main.js`(모바일 메뉴 토글, FAQ 아코디언)뿐.
+- 페이지 구조: 공개 페이지 전체가 `index.html` 한 파일. 섹션 7개(히어로 → 소개 → 서비스·가격 → 첫 방문 → FAQ → 오시는 길 → 예약 안내) + 주석으로 숨긴 네이버 리뷰 자리. 인터랙션은 `src/main.js`(모바일 메뉴 토글, FAQ 아코디언, 구글 지도)뿐.
+- 구글 지도: Maps Embed API iframe. 키는 `VITE_GOOGLE_MAPS_EMBED_KEY` — 로컬은 `.env.local`(견본 `.env.example`), 배포는 GitHub Secret `GOOGLE_MAPS_EMBED_KEY`. 키가 없으면 지도 영역은 숨김. 키는 Google Cloud의 `My Maps Project` 소속이며 HTTP 리퍼러·Maps Embed API로 제한.
 - 스타일: **순수 CSS 한 파일** `src/style.css`. 색상은 `:root`의 `--popo-*` 토큰에서만 정의하고 규칙 안에는 hex를 쓰지 않는다.
 - 서버/API: **없음.** Manus가 만든 서버·관리자 화면·Docker 설정은 2026-10-17 삭제했다(git 기록에 남아 있음).
 - 배포: `main` push → `.github/workflows/deploy.yml`(GitHub Actions)이 `pnpm build` 후 `dist/`를 GitHub Pages에 올린다. 저장소 Settings → Pages → Source는 **GitHub Actions**여야 한다.

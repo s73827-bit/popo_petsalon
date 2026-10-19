@@ -1,11 +1,12 @@
 // PoPo애견미용실 공개 페이지 인터랙션
-// 모바일 메뉴, FAQ 아코디언
+// 모바일 메뉴, FAQ 아코디언, 구글 지도
 
 const $ = (selector, root = document) => root.querySelector(selector);
 
 window.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initFaqAccordion();
+  initLocationMap();
 });
 
 // 메뉴는 한 벌(#siteNav)만 있다. 데스크톱에서는 CSS로 항상 보이고, 모바일에서만 토글한다.
@@ -53,4 +54,28 @@ function initFaqAccordion() {
       answer.classList.toggle('is-open', !isExpanded);
     });
   });
+}
+
+// 구글 지도(Maps Embed API). 키는 .env.local의 VITE_GOOGLE_MAPS_EMBED_KEY에서 빌드할 때 들어온다.
+// 키가 없으면 지도 영역을 숨긴 채로 둔다.
+function initLocationMap() {
+  const container = $('#locationMap');
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_EMBED_KEY;
+  if (!container || !apiKey) return;
+
+  const params = new URLSearchParams({
+    key: apiKey,
+    q: container.dataset.query,
+    language: 'ko',
+    region: 'KR',
+  });
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.google.com/maps/embed/v1/place?${params}`;
+  iframe.title = 'PoPo애견미용실 위치 지도';
+  iframe.loading = 'lazy';
+  iframe.referrerPolicy = 'no-referrer-when-downgrade';
+  iframe.allowFullscreen = true;
+
+  container.prepend(iframe);
+  container.hidden = false;
 }
