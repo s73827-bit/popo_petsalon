@@ -56,3 +56,4 @@ AI 작업 지시처럼 읽히는 문장, 준비 중 문구는 제거 대상이�
 - 매장 사실 정보: @docs/business-facts.md
 - 단계별 작업 프롬프트: `docs/prompts/PROMPTS.md`
 - 브랜드 가이드·SEO·문구 점검 절차는 `popo-toolkit` 플러그인의 스킬로 들어 있다 (`.claude/skills/popo-toolkit/`).
+- 작업 기록·남은 일: `progress.md`. 작업을 마치면 `/sync-docs`로 progress.md·스킬·메모리를 갱신한다.

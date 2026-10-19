@@ -7,6 +7,14 @@ description: PoPo애견미용실 사이트의 검색 노출 점검. title·descr
 
 `docs/business-facts.md`를 먼저 읽고, 확정 값만 사용한다.
 
+## 현재 배포 환경 (2026-10-17)
+- 사이트 주소: `https://s73827-bit.github.io/popo_petsalon/` (GitHub Pages, 하위 경로). Manus 주소는 더 이상 쓰지 않는다.
+- 이 주소가 들어간 곳: `index.html`의 canonical, og:url, og:image, twitter:image, JSON-LD url·image, `public/sitemap.xml`. 도메인이 바뀌면 전부 함께 바꾸고 `vite.config.js`의 `base`도 `/`로 바꾼다.
+- 공유 이미지: `public/og-image.jpg` (1200×630, 크림 배경 + 상호 글자). 로고 원본이 오면 다시 만든다.
+- sitemap: `public/sitemap.xml`, `lastmod`는 고정값. **페이지 내용을 바꾸면 lastmod를 그날 날짜로 갱신**한다.
+- robots.txt: 하위 경로에서는 검색엔진이 읽지 않으므로 두지 않는다. 자체 도메인을 연결하면 `public/robots.txt`를 추가한다.
+- 네이버 인증 메타는 `index.html` `<head>`에 주석으로 자리만 있다.
+
 ## 점검표
 각 항목을 ✅/❌/⚠️로 표시하고, ❌는 고친다.
 
@@ -27,7 +35,8 @@ description: PoPo애견미용실 사이트의 검색 노출 점검. title·descr
 12. **meta keywords**: 순위에 큰 의미 없음. 있으면 두되 과도한 나열은 줄인다.
 
 ## 확인 방법
-- 빌드 결과물(HTML)에서 실제로 출력되는지 확인한다. 소스에만 있고 SPA라서 초기 HTML에 없으면 그 사실을 보고한다.
+- `corepack pnpm build` 후 `dist/index.html`에서 실제로 출력되는지 확인한다. CSS·JS·이미지 경로에 `/popo_petsalon/`이 붙었는지도 본다.
+- 배포 후에는 실제 주소를 curl로 받아 같은 항목과 `og-image.jpg`·`sitemap.xml` 응답(200)을 확인한다.
 - 외부 도구(Rich Results Test, 네이버 서치어드바이저 웹 진단)는 사용자가 직접 실행해야 한다고 안내한다.
 
 ## 보고

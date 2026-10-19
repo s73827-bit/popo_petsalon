@@ -12,4 +12,9 @@ PoPo애견미용실 사이트 작업 도구 목록을 사용자에게 안내하�
 - `/popo-toolkit:seo-audit` — 메타 태그, OG, 구조화 데이터, 네이버 등록 준비 점검
 - 에이전트 `popo-toolkit:site-reviewer` — 변경 후 독립 검토
 
-권장 순서: update-info → copy-check → brand-guide 적용 → seo-audit → site-reviewer 검토
+- `/sync-docs` — 작업이 끝난 뒤 `progress.md`, 이 툴킷 스킬들, Claude 메모리를 최신 상태로 갱신 (툴킷 밖의 프로젝트 스킬)
+
+권장 순서: update-info → copy-check → brand-guide 적용 → seo-audit → site-reviewer 검토 → sync-docs
+
+배포: `main` 브랜치에 push하면 GitHub Actions가 빌드해 https://s73827-bit.github.io/popo_petsalon/ 에 올린다.
+오늘까지의 작업 기록과 남은 일은 저장소 루트의 `progress.md`에 있다.
