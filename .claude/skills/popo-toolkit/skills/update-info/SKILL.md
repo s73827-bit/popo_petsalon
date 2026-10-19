@@ -27,7 +27,7 @@ argument-hint: "[바꿀 항목, 비우면 전체]"
    - 인스타: `https://www.instagram.com/popo_grooming`
 6. 오픈 이벤트 배너: 오늘 날짜가 이벤트 종료일 이전이면 노출. 종료일이 지났으면 배너를 제거하라고 보고한다(삭제할 곳: `index.html`의 OPEN EVENT `<aside>` 블록, `src/style.css`의 `.event-*` 규칙).
 7. 같은 정보가 반복되는 곳을 함께 고친다. 하나만 바꾸면 사이트 안에서 값이 어긋난다:
-   - 주소: 히어로 하단 문구, 오시는 길, 푸터, JSON-LD `address`
+   - 주소: 히어로 하단 문구, 오시는 길, 푸터, JSON-LD `address`, 구글 지도(`#locationMap`의 `data-query`와 "구글 지도에서 크게 보기" 링크의 `query` — URL 인코딩)
    - 전화: 히어로 버튼, FAQ 예약 답변, 오시는 길, 예약 안내, 푸터, 모바일 하단 바, JSON-LD `telephone`, meta description
    - 영업시간·휴무: 히어로 하단 문구, 오시는 길, 예약 안내, 푸터, JSON-LD `openingHoursSpecification`(요일 포함), meta·og·twitter description
 8. 페이지 내용이 바뀌었으면 `public/sitemap.xml`의 `lastmod`를 오늘 날짜로 바꾼다.

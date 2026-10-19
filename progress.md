@@ -1,10 +1,10 @@
 # PoPo애견미용실 홈페이지 작업 기록
 
-- 작업일: 2026-10-17 (매장 오픈일)
+- 작업일: 2026-10-17 (매장 오픈일), 2026-10-19
 - 저장소: https://github.com/s73827-bit/popo_petsalon
 - 사이트: https://s73827-bit.github.io/popo_petsalon/ (GitHub Pages)
 - 사실 정보 근거: `docs/business-facts.md` (이 파일에 없는 값은 사이트에 쓰지 않는다)
-- 마지막 반영 커밋: `f271e05` (`/sync-docs`가 이 커밋 이후의 변경을 이어서 기록한다)
+- 마지막 반영 커밋: `3b239bb` (`/sync-docs`가 이 커밋 이후의 변경을 이어서 기록한다)
 
 ---
 
@@ -19,8 +19,9 @@
 | 디자인 | 짙은 녹색(#26352C), 가짜 엠블럼 로고 | 로고 톤의 크림·베이지·브라운, 텍스트 로고 |
 | 섹션 수 | 15개 (내용 중복 많음) | 7개 |
 | 메뉴 | 데스크톱 8개 + 모바일 12개 (두 벌) | 한 벌 5개 |
-| 코드 | index.html 1,130줄, CSS 1,779줄, 서버 코드 포함 | index.html 578줄, CSS 992줄, 서버 없음 |
+| 코드 | index.html 1,130줄, CSS 1,779줄, 서버 코드 포함 | index.html 583줄, CSS 1,017줄, 서버 없음 |
 | 배포 | Manus (`popopet-2kcmt2vm.manus.space`) | GitHub Actions → GitHub Pages |
+| 지도 | 없음 | 오시는 길에 구글 지도(Maps Embed API) |
 
 ---
 
@@ -84,7 +85,7 @@
 | `0b8a46d` | **Manus 정리**: `server/`, `admin.html`, `src/admin.js`, `Dockerfile`, `app.config.ts`, `manus-routes.json`, `check-api.mjs`, `ideas.md`, `plan.md` 삭제 |
 | `f271e05` | 빈 커밋으로 배포 재실행 (Pages Source를 GitHub Actions로 바꾼 뒤) |
 
-### 문서·스킬 정리 (이 커밋에서)
+### 문서·스킬 정리 · `d2a4217` (2026-10-19 커밋)
 - `progress.md` 작성(이 문서).
 - popo-toolkit 스킬을 현재 구조에 맞게 갱신(v1.1.0): brand-guide에 실제 토큰 값·대비·로고 자리, copy-check에 SVG 속 글자 검사, seo-audit에 GitHub Pages·sitemap lastmod 규칙, update-info에 `[매장정보]` 검색과 함께 고칠 자리 목록, site-reviewer에 실행 환경.
 - `/sync-docs` 스킬 추가(`.claude/skills/sync-docs/`): progress.md·스킬·CLAUDE.md·메모리를 한 번에 갱신.
@@ -92,17 +93,33 @@
 
 ---
 
+## 2026-10-19 — 구글 지도 추가
+
+### 오시는 길에 구글 지도 · `04ef2fb`, `3b239bb`
+- 사용자 요청: "가게 위치를 알 수 있도록 구글맵 활용, API 키 넣을 파일 작성".
+- 방식: **Maps Embed API** iframe(무료·사용량 제한 없음, 코드 최소). 지도 검색어는 business-facts.md 도로명 주소에서 층·호를 뺀 "경기 안양시 동안구 관양로 145".
+- 위치 표 아래에 지도 + "구글 지도에서 크게 보기" 링크(키 없이 동작하는 구글 지도 검색 URL). 모바일 4:3, 데스크톱 16:9, `loading="lazy"`.
+- 키: `VITE_GOOGLE_MAPS_EMBED_KEY`. 로컬은 `.env.local`(gitignore, 견본 `.env.example`은 추적), 배포는 GitHub Secret `GOOGLE_MAPS_EMBED_KEY`를 `deploy.yml` 빌드 단계에서 넘긴다(사용자 승인 후 수정). **키가 없으면 지도 영역은 숨김.**
+- Google Cloud: 키는 **My Maps Project** 소속, HTTP 리퍼러(`https://s73827-bit.github.io/*`, `http://localhost:3000/*`)와 Maps Embed API로 제한.
+- 겪은 문제: ① 처음 키가 Embed API를 켜지 않은 프로젝트에 있어 403("API is not activated") → API를 켠 프로젝트에서 새 키 발급. ② Secret을 `VITE_` 접두어로 등록해 빌드에 키가 비어 있었음 → `GOOGLE_MAPS_EMBED_KEY`로 재등록. `3b239bb`는 재배포용 빈 커밋.
+- 확인: 로컬·배포 사이트 모두 데스크톱/모바일(390px)에서 지도 표시, 콘솔 오류 없음.
+- `.gitignore`에 `.playwright-mcp/`(브라우저 점검 캡처) 추가.
+- `public/sitemap.xml` `lastmod` → 2026-10-19.
+
+---
+
 ## 현재 구조
 
 ```
 index.html               공개 페이지 전체 (매장 정보는 [매장정보] 주석으로 표시)
-src/main.js              모바일 메뉴 토글, FAQ 아코디언
+src/main.js              모바일 메뉴 토글, FAQ 아코디언, 구글 지도
 src/style.css            :root 브랜드 토큰 + 전체 스타일
 public/assets/popo-hero.svg   히어로 일러스트 (로고 원본이 오면 교체)
 public/og-image.jpg      공유 이미지 1200×630
 public/sitemap.xml       sitemap (lastmod 고정)
 docs/business-facts.md   매장 사실 정보 (유일한 근거)
-.github/workflows/deploy.yml  main push → 빌드 → GitHub Pages
+.env.example             구글 지도 키 견본 (.env.local로 복사해 키 입력, 커밋 안 됨)
+.github/workflows/deploy.yml  main push → 빌드 → GitHub Pages (Secret GOOGLE_MAPS_EMBED_KEY 사용)
 .claude/skills/popo-toolkit/  작업 스킬·검토 에이전트
 ```
 
@@ -114,6 +131,7 @@ docs/business-facts.md   매장 사실 정보 (유일한 근거)
 ### 로컬 작업
 - `corepack pnpm install` → `corepack pnpm dev` (http://localhost:3000)
 - 빌드 확인: `corepack pnpm build`
+- 지도까지 보려면 `.env.example`을 `.env.local`로 복사하고 키를 넣는다(키 바꾼 뒤엔 dev 서버 재시작)
 - 이 폴더는 다른 Windows 계정 소유라 git에 `-c safe.directory=C:/dev/popo_petsalon`가 필요하다. 한 번만 `git config --global --add safe.directory C:/dev/popo_petsalon`을 실행하면 이후 생략 가능.
 
 ### 브랜드 색상 토큰
@@ -138,7 +156,7 @@ docs/business-facts.md   매장 사실 정보 (유일한 근거)
 | 가격표 | 서비스·가격 섹션 |
 | 예약 변경·취소 규정 | FAQ 복원 |
 | 대표자명·사업자등록번호·동물미용업 등록번호 | 푸터 |
-| 대중교통 안내 | 오시는 길 |
+| 대중교통 안내 | 오시는 길 (지도는 2026-10-19 추가됨) |
 | 실제 매장 사진 (리셉션, 원목 욕조) | 소개 섹션 |
 | 자체 도메인 | canonical·OG·JSON-LD, robots.txt 추가, `vite.config.js` base를 `/`로 |
 
@@ -153,9 +171,11 @@ docs/business-facts.md   매장 사실 정보 (유일한 근거)
 - [ ] 네이버 서치어드바이저 등록 → 인증값 전달 → sitemap 제출
 - [ ] 구글 Search Console 등록 → sitemap 제출 (`https://s73827-bit.github.io/popo_petsalon/sitemap.xml`)
 - [ ] 카카오 공유 디버거에서 새 주소 미리보기 확인
+- [ ] Google Cloud **My First Project**에 남은 예전 지도 키 삭제 (오류 기록에 값이 노출됨)
 - [ ] **2026-12-30 이후 오픈 이벤트 배너 삭제** (`index.html`의 OPEN EVENT 블록, `style.css`의 `.event-*`)
 
 ### 알려진 제약
 - GitHub Pages 하위 경로(`/popo_petsalon/`)에서는 robots.txt를 쓸 수 없다(검색엔진은 도메인 최상위만 읽음). 자체 도메인 연결 후 추가.
 - 파비콘 없음(로고 원본 대기).
+- 구글 지도 키는 빌드된 JS에 공개된다(Embed API 구조상 불가피). 리퍼러·API 제한으로 보호하며, 키를 바꾸면 Secret 갱신 후 재배포해야 한다.
 - 히어로 일러스트는 Manus가 그린 임시 그림을 브라운으로 바꾼 것. 로고 원본이 오면 교체.

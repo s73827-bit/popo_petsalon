@@ -29,6 +29,7 @@ tools: Read, Grep, Glob, Bash
 ### 동작
 - `tel:` 링크 번호 형식, 카카오·인스타 링크 URL이 정확한가
 - 외부 링크에 `rel="noopener"`가 있는가
+- 구글 지도 키가 소스에 하드코딩되지 않았는가(`AIza` 검색). 키는 `VITE_GOOGLE_MAPS_EMBED_KEY` 환경변수로만 들어와야 하고 `.env.local`은 커밋되면 안 된다
 - 빌드 명령이 CLAUDE.md에 있으면 실행해 통과 여부를 확인
 
 ### 브랜드·사용성
